@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <header id="header" class="header">
+  <header id="header" class="sticky-top header">
     <div class="container-fluid header__container">
       <div class="row align-items-center">
         <div class="col-2 header__logo">
