@@ -7,7 +7,8 @@ function init_template()
 
   register_nav_menus(
     array(
-      'top_menu' => 'Menú principal'
+      'top_menu' => 'Menú principal',
+      'footer_menu' => 'Links del footer'
     )
   );
 }
@@ -26,27 +27,13 @@ function assets()
 
 add_action('wp_enqueue_scripts', 'assets');
 
-function sidebar()
-{
-  register_sidebar(
-    array(
-      'name' => 'Footer',
-      'id' => 'footer',
-      'description' => 'Zona de Widgets para pie de página',
-      'before_title' => '<p>',
-      'after_title' => '</p>',
-      'before_widget' => '<div id="%1$s" class="%2$s">',
-      'after_widget' => '</div>'
-    )
-  );
-}
-
-add_action('widgets_init', 'sidebar');
-
 function atg_menu_classes($classes, $item, $args)
 {
   if ($args->menu->name == 'Main menu') {
     $classes[] = 'nav-item header__nav-item';
+  }
+  if ($args->menu->name == 'Links del footer') {
+    $classes[] = 'nav-item footer__nav-item';
   }
   return $classes;
 }
@@ -58,6 +45,9 @@ function add_specific_menu_location_atts($atts, $item, $args)
 {
   if ($args->menu->name == 'Main menu') {
     $atts['class'] = 'nav-link header__nav-link';
+  }
+  if ($args->menu->name == 'Links del footer') {
+    $atts['class'] = 'nav-link footer__nav-link';
   }
   return $atts;
 }
