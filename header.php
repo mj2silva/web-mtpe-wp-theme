@@ -10,7 +10,7 @@
 
 <body>
   <header id="header" class="sticky-top header">
-    <div class="container-fluid header__container">
+    <div class="container header__container">
       <div class="row align-items-center">
         <div class="col-2 header__logo">
           <img src="<?php echo get_template_directory_uri() ?>/assets/img/logos/logo_primario.svg" alt="Logo gob.pe">
@@ -26,17 +26,6 @@
             </div>
           </form>
         </div>
-      </div>
-      <div>
-        <?php
-        wp_nav_menu(
-          array(
-            'theme_location' => 'top_menu',
-            'menu_class' => 'nav nav-pills nav-justified',
-            'container_class' => 'header__nav-container'
-          )
-        );
-        ?>
       </div>
     </div>
   </header>
