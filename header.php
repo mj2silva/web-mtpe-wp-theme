@@ -29,3 +29,14 @@
       </div>
     </div>
   </header>
+  <div class="container">
+    <?php
+    wp_nav_menu(
+      array(
+        'theme_location' => 'top_menu',
+        'menu_class' => 'nav nav-pills nav-justified',
+        'container_class' => 'header__nav-container'
+      )
+    );
+    ?>
+  </div>
