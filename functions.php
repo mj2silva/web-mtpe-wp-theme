@@ -88,3 +88,33 @@ function my_nav_menu_submenu_css_class($classes)
   return $classes;
 }
 add_filter('nav_menu_submenu_css_class', 'my_nav_menu_submenu_css_class');
+
+//Derechos Socio Laborales
+function derechos_laborales_type()
+{
+  $labels = array(
+    'name' => 'Derechos Socio Laborales',
+    'singular_name' => 'Derecho Socio Laboral',
+    'menu_name' => 'Derechos Socio Laborales'
+  );
+  $supports = array(
+    'title', 'editor', 'custom-fields'
+  );
+  $args = array(
+    'label' => "Derechos Socio Laborales",
+    'description' => 'Derechos Socio Laborales de los Trabajadores Migrantes',
+    'labels' => $labels,
+    'supports' => $supports,
+    'public' => true,
+    'show_in_menu' => true,
+    'menu_position' => 5,
+    'menu_icon' => 'dashicons-editor-ul',
+    'can_export' => true,
+    'publicly_queryable' => true,
+    'rewrite' => true,
+    'show_in_rest' => false
+  );
+  register_post_type('derecho', $args);
+}
+
+add_action('init', 'derechos_laborales_type');

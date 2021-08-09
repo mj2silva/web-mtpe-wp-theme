@@ -17,6 +17,7 @@ License: Unlicensed
   --cl-gray-900-gob: #26292E;
   --cl-white-gob: #FFFFFF;
   --cl-yellow-gob: #FFD147;
+  --cl-blue-700-gob: #0056AC;
 }
 
 * {
@@ -38,6 +39,10 @@ html {
 
 .container-menu {
   background-color: var(--cl-white-gob);
+}
+
+.container--gray{
+  background-color: var(--cl-gray-100-gob);
 }
 
 .main-menu {
@@ -183,4 +188,45 @@ html {
 
 .footer__logo {
   width: 60%;
+}
+
+.button{
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  /* border-radius: .25rem; */
+}
+
+.button--secondary{
+  background-color: var(--cl-white-gob);
+  border: 1px solid var(--cl-blue-700-gob);
+  color: var(--cl-blue-700-gob);
+}
+
+.button--secondary:hover{
+  background-color: rgba(230,242,248,1);
+}
+
+.button__icon{
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.link{
+  text-decoration: underline;
+  display: flex;
+  align-items: baseline;
+  color: var(--cl-gray-800-gob);
+}
+
+.link__text{
+  font-size: 1.25rem;
+}
+
+.link__icon{
+  content: "\f344";
+}
+
+.list__element--link::marker{
+  font-size: 1.5rem;
 }
