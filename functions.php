@@ -5,6 +5,7 @@ $bootstrap_css_uri = 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/boot
 $font_uri = 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap';
 $popper_js_uri = 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js';
 $bootstrap_js_uri = 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js';
+$material_icons_uri = 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 function init_template()
 {
@@ -23,10 +24,11 @@ add_action('after_setup_theme', 'init_template');
 
 function assets()
 {
-  global $bootstrap_css_uri, $font_uri, $popper_js_uri, $bootstrap_js_uri;
+  global $bootstrap_css_uri, $font_uri, $popper_js_uri, $bootstrap_js_uri, $material_icons_uri;
   wp_register_style('bootstrap', $bootstrap_css_uri, '', '5.0.2', 'all');
   wp_register_style('montserrat', $font_uri, '', '1.0', 'all');
-  wp_enqueue_style('styles', get_stylesheet_uri(), array('bootstrap', 'montserrat'), '1.0', 'all');
+  wp_register_style('material-icons', $material_icons_uri, '', '1.0', 'all');
+  wp_enqueue_style('styles', get_stylesheet_uri(), array('bootstrap', 'montserrat', 'material-icons'), '1.0', 'all');
 
   wp_register_script('popper', $popper_js_uri, '', '2.9.2', true);
   wp_enqueue_script('bootstraps', $bootstrap_js_uri, array('jquery', 'popper'), '5.0.2', true);
