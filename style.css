@@ -87,6 +87,7 @@ html {
   background-color: var(--cl-white-gob);
   width: 100%;
   overflow: show;
+  padding: 0;
 }
 
 .header__logo {
@@ -154,9 +155,13 @@ html {
 }
 
 .header__nav-link:focus {
-  color: initial;
+  color: inherit;
   outline: none;
   background-color: var(--cl-yellow-gob) !important;
+}
+
+.header__nav-link:hover {
+  color: var(--cl-red-700-gob) !important;
 }
 
 .header__nav-link::after {
@@ -191,6 +196,11 @@ html {
 }
 
 .header__navbar {
+  padding: 0;
+}
+
+.header__nav-brand {
+  margin: 0;
   padding: 0;
 }
 
