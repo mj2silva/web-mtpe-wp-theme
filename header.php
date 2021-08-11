@@ -44,16 +44,24 @@
       </div>
     </div>
     <div class="container-fluid">
-      <div class="container">
-        <?php
-        wp_nav_menu(
-          array(
-            'theme_location' => 'top_menu',
-            'menu_class' => 'nav nav-pills nav-justified',
-            'container_class' => 'header__nav-container'
-          )
-        );
-        ?>
-      </div>
+      <nav class="navbar navbar-expand-lg navbar-light header__navbar">
+        <div class="container">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler header__navbar-toggler my-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <?php
+            wp_nav_menu(
+              array(
+                'theme_location' => 'top_menu',
+                'menu_class' => 'navbar-nav nav-pills nav-justified',
+                'container_class' => 'header__nav-container'
+              )
+            );
+            ?>
+          </div>
+        </div>
+      </nav>
     </div>
   </header>
