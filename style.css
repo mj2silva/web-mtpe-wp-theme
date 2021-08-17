@@ -326,3 +326,30 @@ html {
   padding: 0;
   background-color: var(--cl-white-gob);
 }
+
+.presentation__field {
+  background-color: var(--cl-white-gob);
+  color: var(--cl-gray-900-gob);
+}
+
+.presentation__content>p>a::after {
+  content: '';
+  position: relative;
+  display: inline-block;
+  background-image: url('assets/img/icons/search_black_24dp.svg');
+  width: 1rem;
+  height: 1rem;
+}
+
+.presentation__content>p>a {
+  color: var(--cl-blue-700-gob);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.presentation__button {
+  background-color: var(--cl-blue-700-gob);
+  border: none;
+  border-radius: 0;
+  padding: 1rem;
+}

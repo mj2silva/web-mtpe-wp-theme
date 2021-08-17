@@ -120,3 +120,27 @@ function derechos_laborales_type()
 }
 
 add_action('init', 'derechos_laborales_type');
+
+add_action('init', 'pgRegisterBlock');
+
+function pgRegisterBlock()
+{
+  $assets = include_once get_template_directory() . '/blocks/build/index.asset.php';
+  wp_register_script(
+    'pg-block',
+    get_template_directory_uri() . '/blocks/build/index.js',
+    $assets['dependencies'],
+    $assets['version'],
+  );
+  register_block_type(
+    'pg/basic',
+    array(
+      'editor_script' => 'pg-block',
+    )
+  );
+}
+
+function pgRenderDynamicBlock($attributes, $content)
+{
+  return '<h2>' . $attributes['content'] . '</h2>';
+}
