@@ -4,6 +4,7 @@
 <?php get_header(); ?>
 
 <main class="container mt-8">
+  <!-- <h1>Derechos</h1> -->
   <div class="row">
     <div id="postArea" class="printing-area col-md-8">
       <?php
