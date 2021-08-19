@@ -353,3 +353,34 @@ html {
   border-radius: 0;
   padding: 1rem;
 }
+
+.presentation__link-image {
+  max-width: 8rem;
+  min-width: 5rem;
+}
+
+.presentation__card {
+  min-width: 20rem;
+}
+
+.presentation__card>.presentation__button {
+  width: 80%;
+}
+
+.button--primary {
+  background-color: var(--cl-blue-700-gob);
+  border: none;
+  border-radius: 0;
+  padding: 1rem;
+}
+
+.button--large {
+  min-width: 12rem;
+}
+
+.informative-links__button {
+  max-width: 12rem;
+  height: 4rem;
+  padding: .5rem 1rem;
+  font-weight: 500;
+}
