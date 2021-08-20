@@ -384,3 +384,19 @@ html {
   padding: .5rem 1rem;
   font-weight: 500;
 }
+
+.info-card {
+  max-width: 7rem;
+  border: solid 1px;
+  border-color: var(--cl-blue-700-gob);
+  border-radius: 0;
+}
+
+.info-card__body {
+  font-size: .55rem;
+  height: min-content;
+}
+
+.info-card__flag {
+  max-width: 5rem;
+}

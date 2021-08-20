@@ -138,6 +138,12 @@ function pgRegisterBlock()
       'editor_script' => 'pg-block',
     )
   );
+  register_block_type(
+    'pg/basic-2',
+    array(
+      'editor_script' => 'pg-block',
+    )
+  );
 }
 
 function pgRenderDynamicBlock($attributes, $content)
