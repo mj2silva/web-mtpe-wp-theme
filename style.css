@@ -418,3 +418,16 @@ html {
 .info-card__flag {
   max-width: 5rem;
 }
+
+.text--bold {
+  font-weight: 700;
+}
+
+.icon-container{
+  display: flex;
+  justify-content: center;
+}
+
+.icon{
+  height: 6rem;
+}

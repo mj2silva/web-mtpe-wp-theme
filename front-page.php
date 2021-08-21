@@ -1,26 +1,29 @@
 <?php get_header(); ?>
 
 <?php
+
+  $directory_uri = get_template_directory_uri();
+
   $accesos = array(
     array(
-      "img" => '.jpg',
+      "img" => $directory_uri."/assets/img/icons/viajar2.png",
       "url" => '#',
       "button" => '¿Vas a trabajar en el extranjero?'
     ),
     array(
-      "img" => '.jpg',
+      "img" => $directory_uri."/assets/img/icons/extranjero2.png",
       "url" => '#',
       "button" => '¿Trabajas en el extranjero?'
     ),
     array(
-      "img" => '.jpg',
+      "img" => $directory_uri."/assets/img/icons/regresar2.png",
       "url" => '#',
       "button" => '¿Vas a retornar al Perú?'
     ),
     array(
-      "img" => '.jpg',
+      "img" => $directory_uri."/assets/img/icons/trabajar2.png",
       "url" => '#',
-      "button" => '¿Eres extranjero y trabajar o quieres trabajar en Perú?'
+      "button" => '¿Eres extranjero y trabajas o quieres trabajar en Perú?'
     ),
   );
 ?>
@@ -38,15 +41,27 @@
           <?php 
             foreach ($accesos as $acceso) {
           ?>
-            <div class="col-3">
-              <div class="">
+            <div class="col-md-3 col-xs-12">
+              <div class="card--no-bar">
+                <div class="icon-container py-4">
+                  <img class="icon card__super-icon" src="<?php echo $acceso['img'] ?>" />
+                </div>
                 <a href="<?php echo $acceso['url'] ?>" class="button--center button--primary">
-                  <span class="text-center">
+                  <span class="text-center text--bold">
                     <?php echo $acceso['button'] ?>
                   </span>
                 </a>
               </div>
             </div>
+            <!-- <div class="col-3">
+              <div class="">
+                <a href="<?php echo $acceso['url'] ?>" class="button--center button--primary">
+                  <span class="text-center text--bold">
+                    <?php echo $acceso['button'] ?>
+                  </span>
+                </a>
+              </div>
+            </div> -->
           <?php
             }
           ?>
