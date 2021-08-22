@@ -91,7 +91,7 @@ function my_nav_menu_submenu_css_class($classes)
 }
 add_filter('nav_menu_submenu_css_class', 'my_nav_menu_submenu_css_class');
 
-//Derechos Socio Laborales
+//Post Type: Derechos Socio Laborales
 function derechos_laborales_type()
 {
   $labels = array(
@@ -121,7 +121,58 @@ function derechos_laborales_type()
 
 add_action('init', 'derechos_laborales_type');
 
+//Post Type: Noticias
+function noticias_type()
+{
+  $labels = array(
+    'name' => 'Noticias',
+    'singular_name' => 'Noticia',
+    'menu_name' => 'Noticias'
+  );
+  $supports = array(
+    'title', 'editor', 'custom-fields'
+  );
+  $args = array(
+    'label' => "Noticias",
+    'description' => 'Noticias',
+    'labels' => $labels,
+    'supports' => $supports,
+    'public' => true,
+    'show_in_menu' => true,
+    'menu_position' => 5,
+    'menu_icon' => 'dashicons-media-spreadsheet',
+    'can_export' => true,
+    'publicly_queryable' => true,
+    'rewrite' => true,
+    'show_in_rest' => false
+  );
+  register_post_type('noticia', $args);
+}
+
+add_action('init', 'noticias_type');
+
+//Taxonomía Categoría de Noticias
+
+add_action('init', 'pgRegisterNewsTax');
+
+function pgRegisterNewsTax() {
+  $labels = array(
+    'name' => 'Categoría de Noticias',
+    'singular_name' => 'Categoría de Noticia'
+  );
+  $args = array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_in_nav_menu' => true,
+    'show_admin_column' => true,
+    'rewrite' => array('slug' => 'categoria-noticias')
+  );
+  register_taxonomy('categoria-noticias', array('noticia'), $args);
+}
+
 add_action('init', 'pgRegisterBlock');
+
+//
 
 function pgRegisterBlock()
 {

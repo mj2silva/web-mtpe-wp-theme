@@ -18,6 +18,7 @@ License: Unlicensed
   --cl-white-gob: #FFFFFF;
   --cl-yellow-gob: #FFD147;
   --cl-blue-700-gob: #0056AC;
+  --cl-blue-800-gob: #2c5282;
   --cl-border-gray: #707070;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -271,6 +272,33 @@ html {
   /* border-radius: .25rem; */
 }
 
+.button--primary {
+  background-color: var(--cl-blue-700-gob);
+  border: none;
+  border-radius: 0;
+  padding: 1rem;
+  color: var(--cl-white-gob);
+}
+
+.button--primary:hover{
+  background-color: var( --cl-blue-800-gob);
+  color: var(--cl-white-gob);
+}
+
+.button--center{
+  display: flex;
+  justify-content: center;
+}
+
+.button--medium {
+  max-width: 14rem;
+  font-size: 1.125rem;
+}
+
+.button--large {
+  min-width: 12rem;
+}
+
 .button--secondary {
   background-color: var(--cl-white-gob);
   border: 1px solid var(--cl-blue-700-gob);
@@ -367,16 +395,6 @@ html {
   width: 80%;
 }
 
-.button--primary {
-  background-color: var(--cl-blue-700-gob);
-  border: none;
-  border-radius: 0;
-  padding: 1rem;
-}
-
-.button--large {
-  min-width: 12rem;
-}
 
 .informative-links__button {
   max-width: 12rem;
@@ -399,4 +417,17 @@ html {
 
 .info-card__flag {
   max-width: 5rem;
+}
+
+.text--bold {
+  font-weight: 700;
+}
+
+.icon-container{
+  display: flex;
+  justify-content: center;
+}
+
+.icon{
+  height: 7rem;
 }
