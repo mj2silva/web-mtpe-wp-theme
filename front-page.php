@@ -28,43 +28,45 @@
   );
 ?>
 
-<main class="container">
+<main class="container-fluid">
 
-  <section class="container container--gray py-5 p-4">
-    <div class="py-4">
-      <h2>¡Todo lo que debes saber para trabajar dentro y fuera del Perú</h2>
-      <p class="h5">
-        Entérate de los beneficios, requisitos y pasos para acceder a ellos, y otra información de tu interés.
-      </p>
-      <div class="py-5">
-        <div class="row">
-          <?php 
-            foreach ($accesos as $acceso) {
-          ?>
-            <div class="col-md-3 col-xs-12">
-              <div class="card--no-bar">
-                <div class="icon-container py-4">
-                  <img class="icon card__super-icon" src="<?php echo $acceso['img'] ?>" />
+  <section class="container-fluid container--gray  py-5">
+    <div class="container">
+      <div class="py-4">
+        <h2>¡Todo lo que debes saber para trabajar dentro y fuera del Perú</h2>
+        <p class="h5">
+          Entérate de los beneficios, requisitos y pasos para acceder a ellos, y otra información de tu interés.
+        </p>
+        <div class="py-5">
+          <div class="row">
+            <?php 
+              foreach ($accesos as $acceso) {
+            ?>
+              <div class="col-md-3 col-xs-12">
+                <div class="card--no-bar">
+                  <div class="icon-container py-4">
+                    <img class="icon card__super-icon" src="<?php echo $acceso['img'] ?>" />
+                  </div>
+                  <a href="<?php echo $acceso['url'] ?>" class="button--center button--primary">
+                    <span class="text-center text--bold">
+                      <?php echo $acceso['button'] ?>
+                    </span>
+                  </a>
                 </div>
-                <a href="<?php echo $acceso['url'] ?>" class="button--center button--primary">
-                  <span class="text-center text--bold">
-                    <?php echo $acceso['button'] ?>
-                  </span>
-                </a>
               </div>
-            </div>
-            <!-- <div class="col-3">
-              <div class="">
-                <a href="<?php echo $acceso['url'] ?>" class="button--center button--primary">
-                  <span class="text-center text--bold">
-                    <?php echo $acceso['button'] ?>
-                  </span>
-                </a>
-              </div>
-            </div> -->
-          <?php
-            }
-          ?>
+              <!-- <div class="col-3">
+                <div class="">
+                  <a href="<?php echo $acceso['url'] ?>" class="button--center button--primary">
+                    <span class="text-center text--bold">
+                      <?php echo $acceso['button'] ?>
+                    </span>
+                  </a>
+                </div>
+              </div> -->
+            <?php
+              }
+            ?>
+          </div>
         </div>
       </div>
     </div>
