@@ -143,8 +143,8 @@ function noticias_type()
     'menu_icon' => 'dashicons-media-spreadsheet',
     'can_export' => true,
     'publicly_queryable' => true,
-    'rewrite' => true,
-    'show_in_rest' => false
+    'rewrite' => false,
+    'show_in_rest' => true
   );
   register_post_type('noticia', $args);
 }
