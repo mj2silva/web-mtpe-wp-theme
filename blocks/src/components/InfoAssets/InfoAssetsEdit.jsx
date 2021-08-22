@@ -1,6 +1,7 @@
-import InfoCardInput from './InfoCardInput.jsx'
 
-const InfoCardsEdit = (props) => {
+import InfoAssetInput from './InfoAssetInput.jsx'
+
+const InfoAssetsEdit = (props) => {
   const { attributes: { links }, setAttributes } = props;
   const addLink = () => {
     setAttributes({
@@ -33,7 +34,7 @@ const InfoCardsEdit = (props) => {
         {
           links.map((link) => (
             <div className="col-3">
-              <InfoCardInput link={link} setLink={editLink} removeLink={removeLink} />
+              <InfoAssetInput link={link} setLink={editLink} removeLink={removeLink} />
             </div>
           ))
         }
@@ -43,4 +44,4 @@ const InfoCardsEdit = (props) => {
   );
 }
 
-export default InfoCardsEdit;
+export default InfoAssetsEdit;

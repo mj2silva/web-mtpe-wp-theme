@@ -133,13 +133,19 @@ function pgRegisterBlock()
     $assets['version'],
   );
   register_block_type(
-    'pg/basic',
+    'mtpe/info-links',
     array(
       'editor_script' => 'pg-block',
     )
   );
   register_block_type(
-    'pg/basic-2',
+    'mtpe/info-cards',
+    array(
+      'editor_script' => 'pg-block',
+    )
+  );
+  register_block_type(
+    'mtpe/info-assets',
     array(
       'editor_script' => 'pg-block',
     )
