@@ -20,6 +20,7 @@ License: Unlicensed
   --cl-blue-700-gob: #0056AC;
   --cl-blue-800-gob: #2c5282;
   --cl-border-gray: #707070;
+  --cl-border-black: #000000;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
@@ -430,4 +431,19 @@ html {
 
 .icon{
   height: 7rem;
+}
+
+.input {
+  height: 3rem;
+  border: 2px solid var(--cl-border-black);
+  font-size: 1.5rem;
+  padding-left: 0.75rem;
+  color: #6F777B;
+  border-radius: 0;
+  
+}
+
+.input:focus{
+  outline: 3px solid var(--cl-yellow-gob);
+  box-shadow: none;
 }
