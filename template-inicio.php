@@ -19,8 +19,8 @@ $fields = get_fields();
                 <?php echo $fields['mensaje_presentacion']; ?>
               </div>
               <div class="presentation__buttons-container text-start">
-                <a href="" class="btn btn-primary presentation__button">Migración laboral</a>
-                <a href="" class="btn btn-primary presentation__button">Seguridad social</a>
+                <a href="#" class="btn btn-primary presentation__button">Migración laboral</a>
+                <a href="#" class="btn btn-primary presentation__button">Seguridad social</a>
               </div>
             </div>
           </div>
@@ -43,9 +43,7 @@ $fields = get_fields();
 <?php
   }
 ?>
-<div class="container">
-  <?php the_content(); ?>
-</div>
+<?php the_content(); ?>
 <section id="derechos-socio-laborales" class="container py-5 p-4">
   <div class="py-4">
     <h2>Conoce los Derechos Socio Laborales de los Trabajadores Migrantes</h2>

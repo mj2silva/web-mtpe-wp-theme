@@ -38,7 +38,7 @@ const InfoCardsEdit = (props) => {
           ))
         }
       </div>
-      <button className="button" onClick={addLink}>Añadir nueva cartilla informativa</button>
+      <button className="button add-new-button" onClick={addLink}>Añadir nueva cartilla informativa</button>
     </div>
   );
 }

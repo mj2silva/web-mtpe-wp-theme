@@ -5,6 +5,8 @@ import InfoLinksEdit from './components/InfoLinks/InfoLinksEdit.jsx';
 import InfoLinksSave from './components/InfoLinks/InfoLinksSave.jsx';
 import InfoAssetsEdit from './components/InfoAssets/InfoAssetsEdit.jsx';
 import InfoAssetsSave from './components/InfoAssets/InfoAssetsSave.jsx';
+import SocialRightsSave from './components/SocialRights/SocialRightsSave.jsx';
+import { withSelect } from '@wordpress/data';
 
 registerBlockType(
   'mtpe/info-links',
@@ -78,5 +80,21 @@ registerBlockType(
     },
     edit: InfoAssetsEdit,
     save: InfoAssetsSave,
+  }
+)
+
+registerBlockType(
+  'mtpe/social-rights-widget',
+  {
+    apiVersion: 2,
+    title: 'Derechos socio laborales - Enlaces',
+    description: 'Lista de los distintos derechos socio-laborales y sus enlaces',
+    icon: 'megaphone',
+    category: 'widgets',
+    edit: withSelect((select) => {
+      return {
+        socialRights: select('core').getEntityRecords('postType', 'derecho')
+      };
+    })(SocialRightsSave),
   }
 )

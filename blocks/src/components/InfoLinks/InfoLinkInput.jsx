@@ -41,14 +41,12 @@ const InfoLinkInput = (props) => {
                   <p>
                     <img src={link.image.url} width={link.image.width / 2} />
                   </p>
-                  <p>
-                    <Button
-                      onClick={() => { setLink({ ...link, image: null }) }}
-                      className="button is-small"
-                    >
-                      Remove
-                    </Button>
-                  </p>
+                  <Button
+                    onClick={() => { setLink({ ...link, image: null }) }}
+                    className="button is-small"
+                  >
+                    Remove
+                  </Button>
                 </div>
               )
               :

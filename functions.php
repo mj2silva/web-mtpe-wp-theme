@@ -114,7 +114,7 @@ function derechos_laborales_type()
     'can_export' => true,
     'publicly_queryable' => true,
     'rewrite' => true,
-    'show_in_rest' => false
+    'show_in_rest' => true
   );
   register_post_type('derecho', $args);
 }
@@ -155,7 +155,8 @@ add_action('init', 'noticias_type');
 
 add_action('init', 'pgRegisterNewsTax');
 
-function pgRegisterNewsTax() {
+function pgRegisterNewsTax()
+{
   $labels = array(
     'name' => 'Categoría de Noticias',
     'singular_name' => 'Categoría de Noticia'
@@ -201,9 +202,81 @@ function pgRegisterBlock()
       'editor_script' => 'pg-block',
     )
   );
+  register_block_type(
+    'mtpe/social-rights-widget',
+    array(
+      'editor_script' => 'pg-block',
+      'render_callback' => 'mtpeRenderDynamicSocialRights'
+    )
+  );
 }
 
 function pgRenderDynamicBlock($attributes, $content)
 {
   return '<h2>' . $attributes['content'] . '</h2>';
 }
+
+function mtpeRenderDynamicSocialRights($block_attributes, $content)
+{
+  $recent_posts = wp_get_recent_posts(array(
+    'post_type' => 'derecho',
+    'numberposts' => -1,
+    'post_status' => 'publish',
+  ));
+  if (count($recent_posts) === 0) {
+    return 'No posts';
+  }
+  $render =
+    '
+    <section id="derechos-socio-laborales" class="container py-5 p-4">
+      <div class="py-4">
+        <h2>Conoce los Derechos Socio Laborales de los Trabajadores Migrantes</h2>
+        <p class="h5">
+          Los trabajadores migrantes del Régimen Laboral de la Actividad Privada tienen entre sus principales derechos socio laborales los siguientes:
+        </p>
+      <div class="container container--gray">
+        <ul class="row py-4">';
+  foreach ($recent_posts as $post) {
+    $post_id = $post['ID'];
+    $render = $render . sprintf(
+      '<div class="col-4 d-flex">;
+          <li class="list__element--link">
+            <a class="link text-center" href="%1$s">
+              <span class="link__text">%2$s</span>
+              <span class="dashicons dashicons-external"></span>
+            </a>
+          </li>
+        </div>',
+      esc_url(get_permalink($post_id)),
+      esc_html(get_the_title($post_id))
+    );
+  }
+  $render = $render . '
+        </ul>
+          </div>
+      <div class="row">
+        <div class="col d-flex flex-row-reverse">
+          <a href="derechos-laborales" class="button button--secondary" style="justify-content: space-between;">
+            Ver más derechos
+            <svg class="ml-4 button__icon" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26">
+              <path fill="currentColor" d="M12.5.5l-2.203 2.203 8.719 8.735H0v3.125h19.016l-8.72 8.734L12.5 25.5 25 13z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+    ';
+  return $render;
+}
+
+function misha_gutenberg_css()
+{
+  global $bootstrap_css_uri;
+  add_theme_support('editor-styles');
+  add_editor_style('style.css');
+  add_editor_style('editor-styles.css');
+  add_editor_style($bootstrap_css_uri);
+}
+
+add_action('after_setup_theme', 'misha_gutenberg_css');

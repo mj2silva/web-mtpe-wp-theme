@@ -43,7 +43,7 @@ const InfoLinksEdit = (props) => {
           ))
         }
       </div>
-      <button className="button" onClick={addLink}>Añadir nuevo link</button>
+      <button className="button add-new-button" onClick={addLink}>Añadir nuevo link</button>
     </div>
   );
 }
