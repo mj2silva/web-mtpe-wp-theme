@@ -1,7 +1,10 @@
-const InfoCardsSave = (props) => {
+import { InnerBlocks } from '@wordpress/block-editor';
+
+const InfoAssetsSave = (props) => {
   const { attributes: { links } } = props;
   return (
     <div className="row row-cols-4 info-cards">
+      <InnerBlocks.Content />
       {
         links.map((link) => (
           <div className="card col-12 col-md-auto m-1 info-card p-1">
@@ -24,4 +27,4 @@ const InfoCardsSave = (props) => {
   );
 }
 
-export default InfoCardsSave;
+export default InfoAssetsSave;

@@ -1,7 +1,7 @@
 import { TextControl, Button } from '@wordpress/components';
-import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor'
+import { MediaUpload, MediaUploadCheck, InnerBlocks } from '@wordpress/block-editor';
 
-const InfoLinkInput = (props) => {
+const InfoAssetInput = (props) => {
   const { link, setLink, removeLink } = props;
   const onChangeUrl = (url) => {
     setLink({
@@ -26,6 +26,7 @@ const InfoLinkInput = (props) => {
   }
   return (
     <div>
+      <InnerBlocks />
       <MediaUploadCheck>
         <MediaUpload
           className="js-book-details-image wp-admin-book-details-image"
@@ -41,12 +42,14 @@ const InfoLinkInput = (props) => {
                   <p>
                     <img src={link.image.url} width={link.image.width / 2} />
                   </p>
-                  <Button
-                    onClick={() => { setLink({ ...link, image: null }) }}
-                    className="button is-small"
-                  >
-                    Remove
-                  </Button>
+                  <p>
+                    <Button
+                      onClick={() => { setLink({ ...link, image: null }) }}
+                      className="button is-small"
+                    >
+                      Remove
+                    </Button>
+                  </p>
                 </div>
               )
               :
@@ -68,4 +71,4 @@ const InfoLinkInput = (props) => {
   )
 }
 
-export default InfoLinkInput;
+export default InfoAssetInput;

@@ -1,7 +1,7 @@
 
-import InfoLinkInput from './InfoLinkInput.jsx'
+import InfoAssetInput from './InfoAssetInput.jsx'
 
-const InfoLinksEdit = (props) => {
+const InfoAssetsEdit = (props) => {
   const { attributes: { links }, setAttributes } = props;
   const addLink = () => {
     setAttributes({
@@ -31,21 +31,17 @@ const InfoLinksEdit = (props) => {
   return (
     <div className='container'>
       <div className="row">
-        <h2>¡Todo lo que debes saber para trabajar dentro y fuera del Perú!</h2>
-        <p>Entérate de los beneficios, requisitos y pasos para acceder a ellos, y otra información de tu interés</p>
-      </div>
-      <div className="row">
         {
           links.map((link) => (
             <div className="col-3">
-              <InfoLinkInput link={link} setLink={editLink} removeLink={removeLink} />
+              <InfoAssetInput link={link} setLink={editLink} removeLink={removeLink} />
             </div>
           ))
         }
       </div>
-      <button className="button add-new-button" onClick={addLink}>Añadir nuevo link</button>
+      <button className="button" onClick={addLink}>Añadir nueva cartilla informativa</button>
     </div>
   );
 }
 
-export default InfoLinksEdit;
+export default InfoAssetsEdit;
