@@ -37,26 +37,29 @@
       </div>
     </div>
     <div class="container-fluid header__bottom">
-      <div class="container py-3 align-items-center header__breadcrumb">
-        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <?php
-            if ($title === 'Inicio') {
-              echo '<li class="header__breadcrumb-item breadcrumb-item active" aria-current="page">Inicio</li>';
-            } else {
-              echo '<li class="header__breadcrumb-item breadcrumb-item">'
-                . '<a href="/">'
-                . 'Inicio'
-                . '</a>'
-                . '</li>'
-                . '<li class="header__breadcrumb-item breadcrumb-item active" aria-current="page">'
-                . $title
-                . '</li>';
-            }
-            ?>
-          </ol>
-        </nav>
-      </div>
+
+
+      <?php
+      if ($title === 'Inicio') {
+        echo '';
+      } else {
+        echo '<div class="container py-3 align-items-center header__breadcrumb">
+          <nav style="--bs-breadcrumb-divider: \' > \';" aria-label="breadcrumb">'
+          . '<ol class="breadcrumb">'
+          . '<li class="header__breadcrumb-item breadcrumb-item">'
+          . '<a href="/">'
+          . 'Inicio'
+          . '</a>'
+          . '</li>'
+          . '<li class="header__breadcrumb-item breadcrumb-item active" aria-current="page">'
+          . $title
+          . '</li>'
+          . '</ol>
+                </nav>
+                </div>';
+      }
+      ?>
+
     </div>
     <div class="container-fluid px-0">
       <nav class="navbar navbar-expand-lg navbar-light header__navbar">
