@@ -92,7 +92,7 @@
       </aside>
     </div>
     <div class="col-md-8">
-      <div class="container-fluid py-5">
+      <div class="container-fluid pt-5 pb-3">
         <form class="searchbar__form" action="#action">
           <div class="input-group input-group-lg md-3">
             <div class="searchbar__icon--minimalist" id="basic-addon1">
