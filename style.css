@@ -13,6 +13,7 @@ License: Unlicensed
   --cl-gray-30-gob: #F6F9FC;
   --cl-gray-40-gob: #F2F5F8;
   --cl-gray-100-gob: #EDF0F4;
+  --cl-gray-400-gob: #DEE3EA;
   --cl-gray-800-gob: #4D4D4D;
   --cl-gray-900-gob: #26292E;
   --cl-white-gob: #FFFFFF;
@@ -433,17 +434,21 @@ html {
   height: 7rem;
 }
 
-.input {
+.input, .select {
   height: 3rem;
   border: 2px solid var(--cl-border-black);
   font-size: 1.5rem;
   padding-left: 0.75rem;
   color: #6F777B;
   border-radius: 0;
-  
+  width: 100%;
 }
 
-.input:focus{
+.input.select:focus{
   outline: 3px solid var(--cl-yellow-gob);
   box-shadow: none;
+}
+
+.select:disabled{
+  background-color: var(--cl-gray-400-gob);
 }
