@@ -28,13 +28,14 @@ function assets()
   wp_register_style('bootstrap', $bootstrap_css_uri, '', '5.0.2', 'all');
   wp_register_style('montserrat', $font_uri, '', '1.0', 'all');
   wp_register_style('material-icons', $material_icons_uri, '', '1.0', 'all');
+  wp_enqueue_style('bootstrap-datepicker-css', get_template_directory_uri() . '/libs/datepicker/css/bootstrap-datepicker.standalone.css', '', '1.0', 'all');
   wp_enqueue_style('styles', get_stylesheet_uri(), array('bootstrap', 'montserrat', 'material-icons'), '1.0', 'all');
 
   wp_register_script('popper', $popper_js_uri, '', '2.9.2', true);
   wp_enqueue_script('bootstraps', $bootstrap_js_uri, array('jquery', 'popper'), '5.0.2', true);
   wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom.js', '', '1.0', true);
-  wp_enqueue_script('bootstrap-datepicker-js', get_template_directory_uri() . '/assets/datepicker/js/bootstrap-datepicker.min.js', '', '1.0', true);
-  wp_enqueue_script('bootstrap-datepicker-locale', get_template_directory_uri() . '/assets/datepicker/locales/bootstrap-datepicker.es.min.js', '', '1.0', true);
+  wp_enqueue_script('bootstrap-datepicker-js', get_template_directory_uri() . '/libs/datepicker/js/bootstrap-datepicker.min.js', '', '1.0', true);
+  wp_enqueue_script('bootstrap-datepicker-locale', get_template_directory_uri() . '/libs/datepicker/locales/bootstrap-datepicker.es.min.js', '', '1.0', true);
   wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom.js', '', '1.0', true);
 }
 
