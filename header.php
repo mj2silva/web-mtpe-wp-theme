@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/datepicker/css/bootstrap-datepicker.standalone.css">
-  <?php wp_head() ?>
+  <?php wp_head();
+  $title = the_title('', '', false); ?>
 </head>
 
 <body>
@@ -39,18 +40,31 @@
       <div class="container py-3 align-items-center header__breadcrumb">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="header__breadcrumb-item breadcrumb-item active" aria-current="page">Inicio</li>
+            <?php
+            if ($title === 'Inicio') {
+              echo '<li class="header__breadcrumb-item breadcrumb-item active" aria-current="page">Inicio</li>';
+            } else {
+              echo '<li class="header__breadcrumb-item breadcrumb-item">'
+                . '<a href="/">'
+                . 'Inicio'
+                . '</a>'
+                . '</li>'
+                . '<li class="header__breadcrumb-item breadcrumb-item active" aria-current="page">'
+                . $title
+                . '</li>';
+            }
+            ?>
           </ol>
         </nav>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid px-0">
       <nav class="navbar navbar-expand-lg navbar-light header__navbar">
         <div class="container header__nav-container">
           <a class="navbar-brand header__nav-brand" href="#"></a>
-          <button class="navbar-toggler header__navbar-toggler my-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler header__navbar-toggler px-0 container--gray m-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="mx-1">Menu</span>
-            <span class="navbar-toggler-icon"></span>
+            <span class="header__navbar-icon">+</span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <?php

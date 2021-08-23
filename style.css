@@ -45,6 +45,30 @@ html {
   scroll-behavior: smooth;
 }
 
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+p, h1, h2, h3 {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+h1 {
+  font-weight: 800 !important;
+}
+
+h2 {
+  font-weight: 700 !important;
+}
+
+p {
+  font-weight: 400 !important;
+}
+
 .container-menu {
   background-color: var(--cl-white-gob);
 }
@@ -210,6 +234,13 @@ html {
   border-color: var(--cl-gray-800-gob);
   box-shadow: none;
   outline: none;
+  width: 100%;
+  min-height: 3rem;
+}
+
+.header__navbar-icon {
+  position: absolute;
+  right: 1rem;
 }
 
 .header__navbar-toggler:focus {
@@ -281,12 +312,12 @@ html {
   color: var(--cl-white-gob);
 }
 
-.button--primary:hover{
+.button--primary:hover {
   background-color: var( --cl-blue-800-gob);
   color: var(--cl-white-gob);
 }
 
-.button--center{
+.button--center {
   display: flex;
   justify-content: center;
 }
@@ -356,9 +387,34 @@ html {
   background-color: var(--cl-white-gob);
 }
 
+.presentation {}
+
 .presentation__field {
   background-color: var(--cl-white-gob);
   color: var(--cl-gray-900-gob);
+  min-height: 22rem;
+  height: 50%;
+  width: 50%;
+  top: 10%;
+  left: 10%;
+  align-items: center;
+}
+
+.presentation__image {
+  min-height: 30rem;
+  object-fit: cover;
+}
+
+.black-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7374300061821604) 0%, rgba(253, 29, 29, 0) 50%, rgba(252, 176, 69, 0) 100%);
+  ;
 }
 
 .presentation__content>p>a::after {
@@ -396,7 +452,6 @@ html {
   width: 80%;
 }
 
-
 .informative-links__button {
   max-width: 12rem;
   height: 4rem;
@@ -424,12 +479,12 @@ html {
   font-weight: 700;
 }
 
-.icon-container{
+.icon-container {
   display: flex;
   justify-content: center;
 }
 
-.icon{
+.icon {
   height: 7rem;
 }
 
@@ -440,10 +495,9 @@ html {
   padding-left: 0.75rem;
   color: #6F777B;
   border-radius: 0;
-  
 }
 
-.input:focus{
+.input:focus {
   outline: 3px solid var(--cl-yellow-gob);
   box-shadow: none;
 }
