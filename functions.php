@@ -33,6 +33,9 @@ function assets()
   wp_register_script('popper', $popper_js_uri, '', '2.9.2', true);
   wp_enqueue_script('bootstraps', $bootstrap_js_uri, array('jquery', 'popper'), '5.0.2', true);
   wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom.js', '', '1.0', true);
+  wp_enqueue_script('bootstrap-datepicker-js', get_template_directory_uri() . '/assets/datepicker/js/bootstrap-datepicker.min.js', '', '1.0', true);
+  wp_enqueue_script('bootstrap-datepicker-locale', get_template_directory_uri() . '/assets/datepicker/locales/bootstrap-datepicker.es.min.js', '', '1.0', true);
+  wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom.js', '', '1.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'assets');
