@@ -301,6 +301,10 @@ html {
   min-width: 12rem;
 }
 
+.button--full{
+  width: 100%;
+}
+
 .button--secondary {
   background-color: var(--cl-white-gob);
   border: 1px solid var(--cl-blue-700-gob);
@@ -451,4 +455,25 @@ html {
 
 .select:disabled{
   background-color: var(--cl-gray-400-gob);
+}
+
+.accordion__button{
+  display: none;
+  color: var(--cl-blue-700-gob);
+}
+
+@media screen and (max-width: 850px) {
+  .accordion__button{
+    display: initial;
+    border: none;
+    background-color: initial;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .accordion-responsive{
+    display: initial !important;
+  }
 }
