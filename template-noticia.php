@@ -91,7 +91,63 @@
         </div>
       </aside>
     </div>
-    <div id="postArea" class="printing-area col-md-8">
+    <div class="col-md-8">
+      <div class="container-fluid py-5">
+        <form class="searchbar__form" action="#action">
+          <div class="input-group input-group-lg md-3">
+            <div class="searchbar__icon--minimalist" id="basic-addon1">
+              <span class="dashicons dashicons-search"></span>
+              <!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/icons/search_black_24dp.svg"> -->
+            </div>
+            <label for="search" class="visually-hidden">Buscar</label>
+            <input class="searchbar__input--minimalist" name="search" type="search" placeholder="Buscar en DSSML" />
+          </div>
+        </form>
+      </div>
+      <div class="container-fluid">
+        <!-- Noticia 1 -->
+        <div class="newsCard container-fluid container--gray py-4 my-3">
+          <div class="newsCard__header">
+            <span class="newsCard__type">Orientación, trámites y servicios</span>
+            <span class="newsCard__timestamp">28 de julio de 2021 - 5:53 a.m.</span>
+          </div>
+          <div class="newsCard__body">
+            <a href="" class="newsCard__title">
+              Mensaje Embajadora del Perú en Francia por el Bicentenario del Perú
+            </a>
+            <p class="newsCard__description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat porro dicta itaque repellendus beatae ratione ea et dolor, nisi autem voluptas, optio commodi odio, nulla aliquam blanditiis rerum perferendis iusto.
+            </p>
+          </div>
+          <div class="newsCard__footer">
+            <a href="" class="newsCard__button">
+              Ver más
+              <span class="dashicons dashicons-arrow-right-alt2"></span>
+            </a>
+          </div>
+        </div>
+        <!-- Noticia 2 -->
+        <div class="newsCard container-fluid container--gray py-4 my-3">
+          <div class="newsCard__header">
+            <span class="newsCard__type">Orientación, trámites y servicios</span>
+            <span class="newsCard__timestamp">28 de julio de 2021 - 5:53 a.m.</span>
+          </div>
+          <div class="newsCard__body">
+            <a href="" class="newsCard__title">
+              Mensaje Embajadora del Perú en Francia por el Bicentenario del Perú
+            </a>
+            <p class="newsCard__description">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat porro dicta itaque repellendus beatae ratione ea et dolor, nisi autem voluptas, optio commodi odio, nulla aliquam blanditiis rerum perferendis iusto.
+            </p>
+          </div>
+          <div class="newsCard__footer">
+            <a href="" class="newsCard__button">
+              Ver más
+              <span class="dashicons dashicons-arrow-right-alt2"></span>
+            </a>
+          </div>
+        </div>
+      </div>
       <?php
         if (have_posts()) {
           while (have_posts()) {

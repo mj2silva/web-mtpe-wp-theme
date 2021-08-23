@@ -236,6 +236,39 @@ html {
   border-radius: 0;
 }
 
+.searchbar__icon--minimalist{
+  border-right: 2px solid #6F777B;
+  border-radius: 0;
+  background-color: initial;
+  padding: 0 !important;
+  height: 2.65rem;
+  width: 3rem;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbar__input--minimalist{
+  border-radius: 0;
+  padding-left: 3.25rem;
+  border: 2px solid var(--cl-border-black);
+  font-size: 1.5rem;
+  color: #6F777B;
+  width: 100%;
+}
+
+.searchbar__input--minimalist:focus{
+  outline: 3px solid var(--cl-yellow-gob);
+  box-shadow: none;
+
+}
+
+.searchbar__icon--minimalist span{
+  font-size: 1.5rem;
+  color: #6F777B;
+}
+
 .footer__container {
   background-color: var(--cl-gray-800-gob);
   color: var(--cl-white-gob);
@@ -476,4 +509,80 @@ html {
   .accordion-responsive{
     display: initial !important;
   }
+}
+
+.newsCard{
+  border-bottom: .5rem solid var(--cl-border-black);
+}
+
+.newsCard__header{
+  padding: .25rem 0;
+  font-size: 0.5rem;
+  border-bottom: 2px solid var(--cl-border-gray);
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 850px) {
+  .newsCard__header{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+
+.newsCard__type{
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.newsCard__timestamp{
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--cl-gray-800-gob);
+}
+
+.newsCard__body{
+  width: 85%;
+}
+
+@media screen and (max-width: 850px) {
+  .newsCard__body{
+    width: 100%;
+  }
+}
+
+.newsCard__title{
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  color: var(--cl-blue-700-gob);
+  font-weight: 700;
+}
+
+.newsCard__description{
+  text-align: justify;
+}
+
+.newsCard__footer{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.newsCard__button{
+  font-weight: 700;
+  padding: .5rem 1rem;
+  border: 1px solid var(--cl-blue-700-gob);
+  color: var(--cl-blue-700-gob);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newsCard__button span{
+  margin-left: 1rem;
+}
+
+.newsCard__button:hover{
+  background-color: rgba(230, 242, 248, 1);
 }

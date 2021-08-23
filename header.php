@@ -8,11 +8,16 @@
   <?php wp_head() ?>
 </head>
 
+<?php 
+  $url_actual =  the_title();
+?>
+
 <body>
   <header id="header" class="sticky-top header">
     <div class="container-fluid header__top">
       <div class="container align-items-center header__container">
         <div class="row align-items-center">
+          <div><?php echo $url_actual ?></div>
           <div class="col-4 col-md-4 col-lg-8 header__logo">
             <div class="d-inline-block">
               <img class="d-md-inline-block" src="<?php echo get_template_directory_uri() ?>/assets/img/logos/escudo_blanco.svg" alt="Logo gob.pe">
