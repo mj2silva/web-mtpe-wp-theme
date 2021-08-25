@@ -112,16 +112,19 @@
           if ($noticias->have_posts()) {
             while ($noticias->have_posts()) {
               $noticias->the_post();
+              $categorias_noticia = get_the_terms( $noticias->ID, 'categoria-noticias');
           ?>
             <div class="newsCard container-fluid container--gray py-4 my-3">
               <div class="newsCard__header">
-                <span class="newsCard__type">Orientación, trámites y servicios</span>
+                <span class="newsCard__type">
+                  <?php echo $categorias_noticia[0]->name ?>
+                </span>
                 <span class="newsCard__timestamp">
                   <?php the_date(); ?> - <?php the_time('g:i a'); ?>
                 </span>
               </div>
               <div class="newsCard__body">
-                <a href="" class="newsCard__title mt-3">
+                <a href="<?php echo get_the_permalink() ?>" class="newsCard__title mt-3">
                   <?php the_title(); ?>
                 </a>
                 <p class="newsCard__description">
@@ -129,7 +132,7 @@
                 </p>
               </div>
               <div class="newsCard__footer">
-                <a href="" class="newsCard__button">
+                <a href="<?php echo get_the_permalink() ?>" class="newsCard__button">
                   Ver más
                   <span class="dashicons dashicons-arrow-right-alt2"></span>
                 </a>
