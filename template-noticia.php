@@ -34,7 +34,7 @@
         </div>
         <div id="flush-collapseOne" class="accordion-collapse collapse accordion-responsive" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
-            <form id="frm-filtros-noticias" name="frm-filtros-noticias"  method="post" action="">
+            <form id="frm-filtros-noticias" class="buscador-noticias" name="frm-filtros-noticias"  method="post" action="">
               <div class="container">
                 <div class="form-group pb-4">
                   <label class="fw-bold mb-2" for="">Filtros de búsqueda</label>
@@ -96,14 +96,14 @@
     </div>
     <div class="col-md-8">
       <div class="container-fluid pt-5 pb-3">
-        <form class="searchbar__form" action="#action">
+        <form class="buscador-noticias searchbar__form" id="frm-buscar-noticias">
           <div class="input-group input-group-lg md-3">
             <div class="searchbar__icon--minimalist" id="basic-addon1">
               <span class="dashicons dashicons-search"></span>
               <!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/icons/search_black_24dp.svg"> -->
             </div>
             <label for="search" class="visually-hidden">Buscar</label>
-            <input class="searchbar__input--minimalist" name="search" type="search" placeholder="Buscar en DSSML" />
+            <input class="searchbar__input--minimalist" id="buscador" name="buscador" type="search" placeholder="Buscar en DSSML" />
           </div>
         </form>
       </div>

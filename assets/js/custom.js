@@ -2,29 +2,37 @@
 // console.log("Archivo inicial");
 
 jQuery(function ($) {
-  $('#frm-filtros-noticias').submit(function(e) {
+  $('.buscador-noticias').submit(function(e) {
     e.preventDefault();
+    let palabraClave = null;
+    let categoria = null;
+    let fechaDesde = null;
+    let fechaHasta = null;
+    console.log($(this).attr('id'));
     // var frm = $(this).data();
-    
-    // console.log(frm);
-    const palabraClave = $('#palabra-clave').val();
-    const categoria = $('#categoria').val();
-    let fechaDesde = $('#fecha_desde').val();
-    let fechaHasta = $('#fecha_hasta').val();
-    if(fechaDesde && fechaHasta){
-      console.log(fechaDesde);
-      fechaDesde = fechaDesde.split('/');
-      // fechaDesde = `${fechaDesde[2]}-${fechaDesde[1]}-${fechaDesde[0]}`;
-      fechaDesde = new Date(`${fechaDesde[1]}/${fechaDesde[0]}/${fechaDesde[2]}`);
-      fechaDesde = fechaDesde.getFullYear() + "-" + (fechaDesde.getMonth() + 1) + "-" + fechaDesde.getDate();
-      fechaHasta = fechaHasta.split('/');
-      // fechaHasta = `${fechaHasta[2]}-${fechaHasta[1]}-${fechaHasta[0]}`;
-      fechaHasta = new Date(`${fechaHasta[1]}/${fechaHasta[0]}/${fechaHasta[2]}`);
-      fechaHasta = fechaHasta.getFullYear() + "-" + (fechaHasta.getMonth() + 1) + "-" + fechaHasta.getDate();
+    if($(this).attr('id') === 'frm-buscar-noticias'){
+      palabraClave = $('#buscador').val();
     }
-    else {
-      fechaHasta = null;
-      fechaDesde = null;
+    else{
+      palabraClave = $('#palabra-clave').val();
+      categoria = $('#categoria').val();
+      fechaDesde = $('#fecha_desde').val();
+      fechaHasta = $('#fecha_hasta').val();
+      if(fechaDesde && fechaHasta){
+        console.log(fechaDesde);
+        fechaDesde = fechaDesde.split('/');
+        // fechaDesde = `${fechaDesde[2]}-${fechaDesde[1]}-${fechaDesde[0]}`;
+        fechaDesde = new Date(`${fechaDesde[1]}/${fechaDesde[0]}/${fechaDesde[2]}`);
+        fechaDesde = fechaDesde.getFullYear() + "-" + (fechaDesde.getMonth() + 1) + "-" + fechaDesde.getDate();
+        fechaHasta = fechaHasta.split('/');
+        // fechaHasta = `${fechaHasta[2]}-${fechaHasta[1]}-${fechaHasta[0]}`;
+        fechaHasta = new Date(`${fechaHasta[1]}/${fechaHasta[0]}/${fechaHasta[2]}`);
+        fechaHasta = fechaHasta.getFullYear() + "-" + (fechaHasta.getMonth() + 1) + "-" + fechaHasta.getDate();
+      }
+      else {
+        fechaHasta = null;
+        fechaDesde = null;
+      }
     }
     console.log(fechaDesde);
     console.log(fechaHasta);
