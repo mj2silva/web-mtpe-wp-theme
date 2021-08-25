@@ -7,13 +7,35 @@ jQuery(function ($) {
     // var frm = $(this).data();
     
     // console.log(frm);
+    const palabraClave = $('#palabra-clave').val();
     const categoria = $('#categoria').val();
-    console.log(categoria);
+    let fechaDesde = $('#fecha_desde').val();
+    let fechaHasta = $('#fecha_hasta').val();
+    if(fechaDesde && fechaHasta){
+      console.log(fechaDesde);
+      fechaDesde = fechaDesde.split('/');
+      // fechaDesde = `${fechaDesde[2]}-${fechaDesde[1]}-${fechaDesde[0]}`;
+      fechaDesde = new Date(`${fechaDesde[1]}/${fechaDesde[0]}/${fechaDesde[2]}`);
+      fechaDesde = fechaDesde.getFullYear() + "-" + (fechaDesde.getMonth() + 1) + "-" + fechaDesde.getDate();
+      fechaHasta = fechaHasta.split('/');
+      // fechaHasta = `${fechaHasta[2]}-${fechaHasta[1]}-${fechaHasta[0]}`;
+      fechaHasta = new Date(`${fechaHasta[1]}/${fechaHasta[0]}/${fechaHasta[2]}`);
+      fechaHasta = fechaHasta.getFullYear() + "-" + (fechaHasta.getMonth() + 1) + "-" + fechaHasta.getDate();
+    }
+    else {
+      fechaHasta = null;
+      fechaDesde = null;
+    }
+    console.log(fechaDesde);
+    console.log(fechaHasta);
     $.ajax({
       url: wp.ajaxurl,
       method: 'POST',
       data: {
         'action': 'wpFiltroNoticias',
+        'palabra-clave': palabraClave,
+        'fecha-desde': fechaDesde,
+        'fecha-hasta': fechaHasta,
         'categoria': categoria,
       },
       beforeSend: function() {

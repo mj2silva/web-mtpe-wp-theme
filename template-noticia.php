@@ -12,7 +12,7 @@
       'post_type' => 'noticia',
       'post_per_page' => -1,
       'order' => 'ASC',
-      'orderby' => 'title'
+      'orderby' => 'title',
     );
     $noticias = new WP_Query($args);
 ?>
@@ -46,13 +46,13 @@
                   <label class="fw-bold mb-2" for="">Fecha de publicación</label>
                   <div class="row">
                     <div class="col-5">
-                      <input type="text" class="form-control input" placeholder="Desde" name="start" id="start" />
+                      <input autocomplete="off" type="text" class="form-control input" placeholder="Desde" name="fecha_desde" id="fecha_desde" />
                     </div>
                     <div class="col-1">
                       <span class="input-group-addon">-</span>
                     </div>
                     <div class="col-5">
-                      <input type="text" class="form-control input" placeholder="Hasta" name="end" id="end" />
+                      <input autocomplete="off" type="text" class="form-control input" placeholder="Hasta" name="fecha_hasta" id="fecha_hasta" />
                     </div>
                   </div>
                 </div>
@@ -166,7 +166,8 @@
   <script>
     jQuery(function ($) {
       $('#datepicker').datepicker({
-        format: "dd/mm",
+        format: "dd/mm/yy",
+        language: "es",
         orientation: "bottom auto",
         autoclose: true,
         todayHighlight: true,

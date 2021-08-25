@@ -191,6 +191,15 @@ function wpFiltroNoticias() {
     'order' => 'ASC',
     'orderby' => 'title'
   );
+  if ($_POST['fecha-desde'] && $_POST['fecha-hasta']){
+    $args['date_query'] = array(
+      array(
+          'after' => $_POST['fecha-desde'],
+          'before' => $_POST['fecha-hasta'],
+          'inclusive' => true,
+      ),
+    );
+  }
   if ($_POST['categoria']){
     $args['tax_query'] = array(
       array(
@@ -199,6 +208,9 @@ function wpFiltroNoticias() {
         'terms' => $_POST['categoria']
       )
       );
+  }
+  if ($_POST['palabra-clave']){
+    $args['s'] = $_POST['palabra-clave'];
   }
   $noticias = new WP_Query($args);
   if($noticias->have_posts()){
