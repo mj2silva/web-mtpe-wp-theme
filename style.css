@@ -90,6 +90,10 @@ p {
   background-color: var(--cl-gray-100-gob);
 }
 
+.bg-gray {
+  background-color: var(--cl-gray-40-gob);
+}
+
 .main-menu {
   background-color: var(--cl-gray-30-gob);
   display: flex;
@@ -544,12 +548,27 @@ p {
   font-weight: 500;
 }
 
+.info-card__card {
+  border-color: var(--cl-blue-700-gob);
+  /* max-width: 9rem; */
+}
+
+.info-card__link {
+  color: var(--cl-blue-700-gob);
+  font-weight: 500;
+}
+
 .info-card {
   max-width: 7rem;
   border: solid 1px;
   border-color: var(--cl-blue-700-gob);
   border-radius: 0;
+  box-sizing: content-box;
 }
+
+/* .info-card__image {
+  max-width: 4.5rem;
+} */
 
 .info-card__body {
   font-size: .55rem;
@@ -558,6 +577,8 @@ p {
 
 .info-card__flag {
   max-width: 5rem;
+  width: fit-content;
+  height: fit-content;
 }
 
 .text--bold {

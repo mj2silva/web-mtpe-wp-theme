@@ -40,7 +40,7 @@ const ContactSave = (props) => {
         <div class="d-lg-none d-block row px-4 py-3 g-0">
           <div class="row px-0 d-flex px-2">
             <h2 class="text-center text-lg-start">Contacto</h2>
-            <div class="container py-4 px-5">
+            <div class="container py-4">
               <div class="contactInfo__block">
                 <h4 class="h4 text-start">Sede central</h4>
                 <RichText.Content value={address} />

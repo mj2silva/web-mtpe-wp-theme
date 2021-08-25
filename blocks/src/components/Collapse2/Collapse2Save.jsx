@@ -4,7 +4,7 @@ import { InnerBlocks } from '@wordpress/block-editor';
 const Collapse2Save = (props) => {
   const { attributes: { title, icon, id } } = props;
   return (
-    <div className="container collapsable">
+    <div className="container px-0 collapsable">
       <div className="row my-2 d-flex justify-content-between">
         <div className="col-10 p-0 d-flex align-items-center">
           {

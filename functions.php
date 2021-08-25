@@ -184,38 +184,39 @@ add_action('init', 'pgRegisterBlock');
 add_action("wp_ajax_nopriv_wpFiltroNoticias", "wpFiltroNoticias");
 add_action("wp_ajax_wpFiltroNoticias", "wpFiltroNoticias");
 
-function wpFiltroNoticias() {
+function wpFiltroNoticias()
+{
   $args = array(
     'post_type' => 'noticia',
     'posts_per_page' => -1,
     'order' => 'ASC',
     'orderby' => 'title'
   );
-  if ($_POST['fecha-desde'] && $_POST['fecha-hasta']){
+  if ($_POST['fecha-desde'] && $_POST['fecha-hasta']) {
     $args['date_query'] = array(
       array(
-          'after' => $_POST['fecha-desde'],
-          'before' => $_POST['fecha-hasta'],
-          'inclusive' => true,
+        'after' => $_POST['fecha-desde'],
+        'before' => $_POST['fecha-hasta'],
+        'inclusive' => true,
       ),
     );
   }
-  if ($_POST['categoria']){
+  if ($_POST['categoria']) {
     $args['tax_query'] = array(
       array(
         'taxonomy' => 'categoria-noticias',
         'field' => 'slug',
         'terms' => $_POST['categoria']
       )
-      );
+    );
   }
-  if ($_POST['palabra-clave']){
+  if ($_POST['palabra-clave']) {
     $args['s'] = $_POST['palabra-clave'];
   }
   $noticias = new WP_Query($args);
-  if($noticias->have_posts()){
+  if ($noticias->have_posts()) {
     $return = array();
-    while($noticias->have_posts()){
+    while ($noticias->have_posts()) {
       $noticias->the_post();
       $return[] = array(
         'title' => get_the_title(),
@@ -284,7 +285,7 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
   }
   $render =
     '
-    <section id="derechos-socio-laborales" class="container py-5 p-4">
+    <section id="derechos-socio-laborales" class="container py-4">
       <div class="py-4">
         <h2>Conoce los Derechos Socio Laborales de los Trabajadores Migrantes</h2>
         <p class="h5">
@@ -347,4 +348,3 @@ function special_nav_class($classes, $item)
   }
   return $classes;
 } */
-

@@ -15,6 +15,10 @@ import Collapse2Edit from './components/Collapse2/Collapse2Edit.jsx';
 import Collapse2Save from './components/Collapse2/Collapse2Save.jsx';
 import ContactEdit from './components/Contact/ContactEdit.jsx';
 import ContactSave from './components/Contact/ContactSave.jsx';
+import ContainerGrayEdit from './components/ContainerGray/ContainerGrayEdit.jsx';
+import ContainerEdit from './components/Container/ContainerEdit.jsx';
+import ContainerSave from './components/Container/ContainerSave.jsx';
+import ContainerGraySave from './components/ContainerGray/ContainerGraySave.jsx';
 
 registerBlockType(
   'mtpe/info-links',
@@ -149,6 +153,10 @@ registerBlockType(
         type: 'string',
         default: '',
       },
+      id: {
+        type: 'string',
+        default: '',
+      }
     },
     edit: Collapse1Edit,
     save: Collapse1Save,
@@ -214,5 +222,33 @@ registerBlockType(
     },
     edit: ContactEdit,
     save: ContactSave,
+  }
+)
+
+registerBlockType(
+  'mtpe/container',
+  {
+    apiVersion: 2,
+    title: 'Contenedor',
+    description: 'Contenedor simple para un bloque o bloques de la página',
+    icon: 'align-wide',
+    category: 'layout',
+    attributes: {},
+    edit: ContainerEdit,
+    save: ContainerSave,
+  }
+)
+
+registerBlockType(
+  'mtpe/container-gray',
+  {
+    apiVersion: 2,
+    title: 'Contenedor gris',
+    description: 'Uso para crear contenedores con fondo gris claro',
+    icon: 'align-wide',
+    category: 'layout',
+    attributes: {},
+    edit: ContainerGrayEdit,
+    save: ContainerGraySave,
   }
 )

@@ -1,7 +1,7 @@
 const InfoCardsSave = (props) => {
   const { attributes: { links } } = props;
   return (
-    <div className="row row-cols-4 info-cards">
+    <div className="row row-cols-4 info-cards g-0">
       {
         links.map((link) => (
           <div className="card col-12 col-md-auto m-1 info-card p-1">

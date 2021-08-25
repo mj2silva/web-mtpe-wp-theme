@@ -1,3 +1,25 @@
+:root {
+  --cl-red-700-gob: #CF000B;
+  --cl-gray-30-gob: #F6F9FC;
+  --cl-gray-40-gob: #F2F5F8;
+  --cl-gray-100-gob: #EDF0F4;
+  --cl-gray-400-gob: #DEE3EA;
+  --cl-gray-600-gob: #6F777B;
+  --cl-gray-800-gob: #4D4D4D;
+  --cl-gray-900-gob: #26292E;
+  --cl-white-gob: #FFFFFF;
+  --cl-yellow-gob: #FFD147;
+  --cl-blue-700-gob: #0056AC;
+  --cl-blue-800-gob: #2c5282;
+  --cl-border-gray: #707070;
+  --cl-border-black: #000000;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+}
+
 .components-button {
   font-size: 1rem;
   align-items: center;
@@ -176,4 +198,8 @@ li {
 
 .contactInfo__image {
   min-height: 40rem;
+}
+
+.bg-gray {
+  background-color: var(--cl-gray-40-gob);
 }
