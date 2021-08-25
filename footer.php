@@ -1,4 +1,4 @@
-<footer id="footer">
+<footer id="footer" class="mt-5">
   <div class="container-fluid footer__container">
     <div class="container">
       <div class="row">

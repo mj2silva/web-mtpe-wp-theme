@@ -29,7 +29,8 @@ function assets()
   wp_register_style('montserrat', $font_uri, '', '1.0', 'all');
   wp_register_style('material-icons', $material_icons_uri, '', '1.0', 'all');
   wp_enqueue_style('bootstrap-datepicker-css', get_template_directory_uri() . '/libs/datepicker/css/bootstrap-datepicker.standalone.css', '', '1.0', 'all');
-  wp_enqueue_style('styles', get_stylesheet_uri(), array('bootstrap', 'montserrat', 'material-icons'), '1.0', 'all');
+  $rand = rand(0, 99999999999999);
+  wp_enqueue_style('styles', get_stylesheet_uri(), array('bootstrap', 'montserrat', 'material-icons'), $rand, 'all');
 
   wp_register_script('popper', $popper_js_uri, '', '2.9.2', true);
   wp_enqueue_script('bootstraps', $bootstrap_js_uri, array('jquery', 'popper'), '5.0.2', true);
@@ -238,16 +239,16 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
         <p class="h5">
           Los trabajadores migrantes del Régimen Laboral de la Actividad Privada tienen entre sus principales derechos socio laborales los siguientes:
         </p>
-      <div class="container container--gray">
+      <div class="container my-3 container--gray">
         <ul class="row py-4">';
   foreach ($recent_posts as $post) {
     $post_id = $post['ID'];
     $render = $render . sprintf(
-      '<div class="col-4 d-flex">;
-          <li class="list__element--link">
+      '<div class="col-4 d-flex">
+          <li class="list__element-item">
             <a class="link text-center" href="%1$s">
               <span class="link__text">%2$s</span>
-              <span class="dashicons dashicons-external"></span>
+              <span class="material-icons link__icon">open_in_new</span>
             </a>
           </li>
         </div>',
@@ -276,11 +277,22 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
 
 function misha_gutenberg_css()
 {
-  global $bootstrap_css_uri;
+  global $bootstrap_css_uri, $material_icons_uri;
   add_theme_support('editor-styles');
   add_editor_style('style.css');
   add_editor_style('editor-styles.css');
   add_editor_style($bootstrap_css_uri);
+  add_editor_style($material_icons_uri);
 }
 
 add_action('after_setup_theme', 'misha_gutenberg_css');
+
+/* add_filter('nav_menu_css_class', 'special_nav_class', 10, 2);
+
+function special_nav_class($classes, $item)
+{
+  if (in_array('current-menu-item', $classes)) {
+    $classes[] = 'active header__nav--active';
+  }
+  return $classes;
+} */
