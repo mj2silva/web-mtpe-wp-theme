@@ -13,6 +13,8 @@ import Collapse1Edit from './components/Collapse1/Collapse1Edit.jsx';
 import Collapse1Save from './components/Collapse1/Collapse1Save.jsx';
 import Collapse2Edit from './components/Collapse2/Collapse2Edit.jsx';
 import Collapse2Save from './components/Collapse2/Collapse2Save.jsx';
+import ContactEdit from './components/Contact/ContactEdit.jsx';
+import ContactSave from './components/Contact/ContactSave.jsx';
 
 registerBlockType(
   'mtpe/info-links',
@@ -177,5 +179,40 @@ registerBlockType(
     },
     edit: Collapse2Edit,
     save: Collapse2Save,
+  }
+)
+
+registerBlockType(
+  'mtpe/contact-info',
+  {
+    apiVersion: 2,
+    title: 'Información de contacto',
+    description: 'Bloque de información de contacto predeterminada para el mtpe',
+    icon: 'phone',
+    category: 'layout',
+    attributes: {
+      address: {
+        type: 'string',
+        default: '',
+      },
+      mapUrl: {
+        type: 'string',
+        default: '',
+      },
+      phone: {
+        type: 'string',
+        default: '',
+      },
+      schedule: {
+        type: 'string',
+        default: '',
+      },
+      background: {
+        type: 'object',
+        default: null,
+      }
+    },
+    edit: ContactEdit,
+    save: ContactSave,
   }
 )

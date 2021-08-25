@@ -138,3 +138,42 @@ li {
 .collapsable__content>ul>li {
   list-style: disc;
 }
+
+.contactInfo__carousel {
+  max-height: 45rem;
+}
+
+.contactInfo__caption {
+  top: 10%;
+  left: 10%;
+  height: auto;
+  bottom: auto;
+  width: 80%;
+  min-width: 10rem;
+  color: var(--cl-gray-900-gob);
+}
+
+.contactInfo__caption-content {
+  background-color: var(--cl-white-gob);
+  color: var(--cl-gray-900-gob);
+  border-bottom: 5px solid;
+  border-bottom-color: var(--cl-gray-900-gob);
+}
+
+.contactInfo__block {
+  font-size: 1.2rem;
+}
+
+.contactInfo__link {
+  color: var(--cl-blue-700-gob);
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.contactInfo__link-icon {
+  font-size: 1.8rem;
+}
+
+.contactInfo__image {
+  min-height: 40rem;
+}
