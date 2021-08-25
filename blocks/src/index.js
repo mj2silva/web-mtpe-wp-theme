@@ -11,6 +11,8 @@ import MTPELinkEdit from './components/Link/MTPELinkEdit.jsx';
 import MTPELinkSave from './components/Link/MTPELinkSave.jsx';
 import Collapse1Edit from './components/Collapse1/Collapse1Edit.jsx';
 import Collapse1Save from './components/Collapse1/Collapse1Save.jsx';
+import Collapse2Edit from './components/Collapse2/Collapse2Edit.jsx';
+import Collapse2Save from './components/Collapse2/Collapse2Save.jsx';
 
 registerBlockType(
   'mtpe/info-links',
@@ -148,5 +150,32 @@ registerBlockType(
     },
     edit: Collapse1Edit,
     save: Collapse1Save,
+  }
+)
+
+registerBlockType(
+  'mtpe/collapse-element-2',
+  {
+    apiVersion: 2,
+    title: 'Elementos colapsables estilo 2',
+    description: 'Elementos colapsables con título e ícono',
+    icon: 'arrow-down-alt2',
+    category: 'layout',
+    attributes: {
+      title: {
+        type: 'string',
+        default: '',
+      },
+      icon: {
+        type: 'object',
+        default: null,
+      },
+      id: {
+        type: 'string',
+        default: ((new Date().getTime()) * Math.floor(Math.random() * 1000)).toString(16),
+      }
+    },
+    edit: Collapse2Edit,
+    save: Collapse2Save,
   }
 )
