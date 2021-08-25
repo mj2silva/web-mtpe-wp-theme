@@ -112,10 +112,13 @@
           if ($noticias->have_posts()) {
             while ($noticias->have_posts()) {
               $noticias->the_post();
+              $categorias_noticia = get_the_terms( $noticias->ID, 'categoria-noticias');
           ?>
             <div class="newsCard container-fluid container--gray py-4 my-3">
               <div class="newsCard__header">
-                <span class="newsCard__type">Orientación, trámites y servicios</span>
+                <span class="newsCard__type">
+                  <?php echo $categorias_noticia[0]->name ?>
+                </span>
                 <span class="newsCard__timestamp">
                   <?php the_date(); ?> - <?php the_time('g:i a'); ?>
                 </span>
