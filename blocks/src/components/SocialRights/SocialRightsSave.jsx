@@ -11,16 +11,17 @@ const SocialRightsSave = ({ socialRights }) => {
             Los trabajadores migrantes del Régimen Laboral de la Actividad Privada tienen entre sus principales derechos socio laborales los siguientes:
           </p>
           <div className="container container--gray">
-            <ul className="row py-4">
+            <ul className="row px-0 py-4">
               {!socialRights && 'Cargando...'}
               {socialRights && socialRights.length === 0 && 'No se han registrado derechos socio laborales'}
               {socialRights && socialRights.length > 0 && (
                 socialRights.map((socialRight) => (
                   <div className="col-4 d-flex">
-                    <li className="list__element--link">
+                    <li className="list__element-item">
                       <a className="link text-center" href={socialRight.link}>
                         <span className="link__text">{socialRight.title?.rendered}</span>
-                        <span className="dashicons dashicons-external"></span>
+                        {' '}
+                        <span className="material-icons link__icon">open_in_new</span>
                       </a>
                     </li>
                   </div>

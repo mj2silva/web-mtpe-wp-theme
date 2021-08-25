@@ -7,6 +7,10 @@ import InfoAssetsEdit from './components/InfoAssets/InfoAssetsEdit.jsx';
 import InfoAssetsSave from './components/InfoAssets/InfoAssetsSave.jsx';
 import SocialRightsSave from './components/SocialRights/SocialRightsSave.jsx';
 import { withSelect } from '@wordpress/data';
+import MTPELinkEdit from './components/Link/MTPELinkEdit.jsx';
+import MTPELinkSave from './components/Link/MTPELinkSave.jsx';
+import Collapse1Edit from './components/Collapse1/Collapse1Edit.jsx';
+import Collapse1Save from './components/Collapse1/Collapse1Save.jsx';
 
 registerBlockType(
   'mtpe/info-links',
@@ -84,6 +88,31 @@ registerBlockType(
 )
 
 registerBlockType(
+  'mtpe/link',
+  {
+    title: 'MTPE Link',
+    description: 'Link con estilos de la web del MTPE',
+    icon: 'external',
+    category: 'layout',
+    attributes: {
+      links: {
+        type: 'array',
+        default: [
+          {
+            id: new Date().getTime().toString(),
+            style: 'default',
+            url: '',
+            label: '',
+          }
+        ]
+      }
+    },
+    edit: MTPELinkEdit,
+    save: MTPELinkSave,
+  }
+)
+
+registerBlockType(
   'mtpe/social-rights-widget',
   {
     apiVersion: 2,
@@ -96,5 +125,28 @@ registerBlockType(
         socialRights: select('core').getEntityRecords('postType', 'derecho')
       };
     })(SocialRightsSave),
+  }
+)
+
+registerBlockType(
+  'mtpe/collapse-element-1',
+  {
+    apiVersion: 2,
+    title: 'Elementos colapsables estilo 1',
+    description: 'Elementos colapsables con título y descripción',
+    icon: 'arrow-down-alt2',
+    category: 'layout',
+    attributes: {
+      title: {
+        type: 'string',
+        default: '',
+      },
+      description: {
+        type: 'string',
+        default: '',
+      },
+    },
+    edit: Collapse1Edit,
+    save: Collapse1Save,
   }
 )

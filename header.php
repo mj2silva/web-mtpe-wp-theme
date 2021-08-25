@@ -17,8 +17,10 @@
         <div class="row align-items-center">
           <div class="col-4 col-md-4 col-lg-8 header__logo">
             <div class="d-inline-block">
-              <img class="d-md-inline-block" src="<?php echo get_template_directory_uri() ?>/assets/img/logos/escudo_blanco.svg" alt="Logo gob.pe">
-              <img class="d-none d-md-inline-block" src="<?php echo get_template_directory_uri() ?>/assets/img/logos/gobpe_blanco.svg" alt="Logo gob.pe">
+              <a href="/">
+                <img class="d-md-inline-block" src="<?php echo get_template_directory_uri() ?>/assets/img/logos/escudo_blanco.svg" alt="Logo gob.pe">
+                <img class="d-none d-md-inline-block" src="<?php echo get_template_directory_uri() ?>/assets/img/logos/gobpe_blanco.svg" alt="Logo gob.pe">
+              </a>
             </div>
             <h5 class="d-none d-lg-inline-block header__title">Dirección de seguridad social y migración laboral</h5>
           </div>

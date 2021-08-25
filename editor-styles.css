@@ -8,3 +8,74 @@
 .add-new-button {
   padding: .5rem 1rem;
 }
+
+.link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  align-items: baseline;
+  color: var(--cl-gray-600-gob);
+  font-weight: 700;
+  line-height: 2rem;
+}
+
+.link:hover {
+  color: var(--cl-gray-800-gob);
+}
+
+.link__text {
+  font-size: inherit;
+  color: inherit;
+  display: inline;
+}
+
+.link__icon {
+  font-size: inherit;
+  display: inline;
+}
+
+.list__element--link::marker {
+  font-size: 1.5rem;
+}
+
+.list__element-item {
+  padding-left: 1rem;
+  list-style-position: inside;
+}
+
+.list__element-item--no-style {
+  list-style: none;
+  list-style-position: initial;
+  padding: 0;
+}
+
+.button {
+  overflow: hidden;
+}
+
+.link-group>ul>li {
+  margin: .5rem auto;
+  font-size: 1.2rem;
+}
+
+.button--small {
+  padding: .2rem .5rem;
+  font-size: .8rem;
+  margin: .5rem 0
+}
+
+.button--remove {
+  background-color: rgb(255, 209, 209);
+  color: rgb(139, 43, 43);
+  font-weight: 800;
+  font-size: .8rem;
+  padding: 0 .2rem;
+  border-color: rgb(139, 43, 43);
+  width: 5rem;
+}
+
+.with-border {
+  border-color: rgb(58, 58, 182);
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+}

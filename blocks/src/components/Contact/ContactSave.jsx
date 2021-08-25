@@ -21,7 +21,7 @@ const ContactSave = () => {
       </div>
       <div className="d-lg-none d-block row px-4 py-3 g-0">
         <div className="container">
-          <h1>echo $fields['titulo_principal']</h1>
+          <h3>Sede central</h3>
           <div className="presentation__content text-start">
             echo $fields['mensaje_presentacion']
           </div>
