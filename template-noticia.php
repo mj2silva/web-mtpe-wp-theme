@@ -7,6 +7,16 @@
   $categorias = get_terms(['taxonomy' =>'categoria-noticias', 'hide_empty' => false]);
 ?>
 
+<?php
+    $args = array(
+      'post_type' => 'noticia',
+      'post_per_page' => -1,
+      'order' => 'ASC',
+      'orderby' => 'title'
+    );
+    $noticias = new WP_Query($args);
+?>
+
 <main class="container mt-8">  
   <!-- <h1>Derechos</h1> -->
   <script>
@@ -24,9 +34,6 @@
                 Filtros de búsqueda
               </button>
             </h2>
-            <!-- <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-              <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-            </div> -->
           </div>
         </div>
         <div id="flush-collapseOne" class="accordion-collapse collapse accordion-responsive" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -105,57 +112,49 @@
         </form>
       </div>
       <div class="container-fluid">
-        <!-- Noticia 1 -->
-        <div class="newsCard container-fluid container--gray py-4 my-3">
-          <div class="newsCard__header">
-            <span class="newsCard__type">Orientación, trámites y servicios</span>
-            <span class="newsCard__timestamp">28 de julio de 2021 - 5:53 a.m.</span>
-          </div>
-          <div class="newsCard__body">
-            <a href="" class="newsCard__title">
-              Mensaje Embajadora del Perú en Francia por el Bicentenario del Perú
-            </a>
-            <p class="newsCard__description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat porro dicta itaque repellendus beatae ratione ea et dolor, nisi autem voluptas, optio commodi odio, nulla aliquam blanditiis rerum perferendis iusto.
-            </p>
-          </div>
-          <div class="newsCard__footer">
-            <a href="" class="newsCard__button">
-              Ver más
-              <span class="dashicons dashicons-arrow-right-alt2"></span>
-            </a>
-          </div>
-        </div>
-        <!-- Noticia 2 -->
-        <div class="newsCard container-fluid container--gray py-4 my-3">
-          <div class="newsCard__header">
-            <span class="newsCard__type">Orientación, trámites y servicios</span>
-            <span class="newsCard__timestamp">28 de julio de 2021 - 5:53 a.m.</span>
-          </div>
-          <div class="newsCard__body">
-            <a href="" class="newsCard__title">
-              Mensaje Embajadora del Perú en Francia por el Bicentenario del Perú
-            </a>
-            <p class="newsCard__description">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat porro dicta itaque repellendus beatae ratione ea et dolor, nisi autem voluptas, optio commodi odio, nulla aliquam blanditiis rerum perferendis iusto.
-            </p>
-          </div>
-          <div class="newsCard__footer">
-            <a href="" class="newsCard__button">
-              Ver más
-              <span class="dashicons dashicons-arrow-right-alt2"></span>
-            </a>
-          </div>
-        </div>
+        <?php 
+          if ($noticias->have_posts()) {
+            while ($noticias->have_posts()) {
+              $noticias->the_post();
+          ?>
+            <div class="newsCard container-fluid container--gray py-4 my-3">
+              <div class="newsCard__header">
+                <span class="newsCard__type">Orientación, trámites y servicios</span>
+                <span class="newsCard__timestamp">28 de julio de 2021 - 5:53 a.m.</span>
+              </div>
+              <div class="newsCard__body">
+                <a href="" class="newsCard__title mt-3">
+                  <?php the_title(); ?>
+                </a>
+                <p class="newsCard__description">
+                  <?php the_excerpt(); ?>
+                </p>
+              </div>
+              <div class="newsCard__footer">
+                <a href="" class="newsCard__button">
+                  Ver más
+                  <span class="dashicons dashicons-arrow-right-alt2"></span>
+                </a>
+              </div>
+            </div>
+              <!-- <div class="col-4 d-flex">
+                <li class="list__element--link">
+                  <a class="link text-center" href="<?php echo get_post_meta(get_the_ID(), 'external_link', true); ?>">
+                    <span class="link__text"></span>
+                    <span class="dashicons dashicons-external"></span>
+                  </a>
+                </li>
+              </div> -->
+          <?php
+            }
+          }
+        ?>
       </div>
       <?php
         if (have_posts()) {
           while (have_posts()) {
             the_post();
         ?>
-          <h1 class="my-3">
-            <?php the_title() ?>
-          </h1>
           <?php the_content(); ?>
         <?php
           }
