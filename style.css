@@ -654,6 +654,17 @@ p {
   line-height: 2rem;
 }
 
+.link--secondary{
+  text-decoration: none;
+  color: var(--cl-blue-700-gob);
+  font-weight: 700;
+  line-height: 1.4rem;
+}
+
+.link--secondary-regular{
+  font-weight: 500;
+}
+
 .link:hover {
   color: var(--cl-gray-800-gob);
 }
@@ -896,4 +907,28 @@ p {
 
 .contactInfo__link-icon {
   font-size: 1.8rem;
+}
+
+.no-results{
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-bottom: 5px solid;
+  border-bottom-color: var(--cl-gray-900-gob);
+}
+
+.relatedLinks-container{
+  border-bottom: 1px solid var(--cl-border-gray);
+}
+
+.border-gob{
+  border-style: solid;
+  border-color: var(--cl-red-700-gob);
+  border-width: 2px;
+}
+
+.border-gob-start{
+  border-left: 2px solid var(--cl-red-700-gob);
 }
