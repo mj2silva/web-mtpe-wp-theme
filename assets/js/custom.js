@@ -51,7 +51,7 @@ jQuery(function ($) {
         }
         else {
           $('#contenedor-noticias').html(
-            'No se encontraron resultados...'
+            'No se encontraron resultados... No te va a salir, mejor ve a dormir :v'
           );
         }
       },

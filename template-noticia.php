@@ -121,7 +121,7 @@
                 </span>
               </div>
               <div class="newsCard__body">
-                <a href="" class="newsCard__title mt-3">
+                <a href="<?php echo get_the_permalink() ?>" class="newsCard__title mt-3">
                   <?php the_title(); ?>
                 </a>
                 <p class="newsCard__description">
@@ -129,7 +129,7 @@
                 </p>
               </div>
               <div class="newsCard__footer">
-                <a href="" class="newsCard__button">
+                <a href="<?php echo get_the_permalink() ?>" class="newsCard__button">
                   Ver más
                   <span class="dashicons dashicons-arrow-right-alt2"></span>
                 </a>
