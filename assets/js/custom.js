@@ -29,10 +29,10 @@ jQuery(function ($) {
             html += `<div class="newsCard container-fluid container--gray py-4 my-3">
             <div class="newsCard__header">
               <span class="newsCard__type">Orientación, trámites y servicios</span>
-              <span class="newsCard__timestamp">28 de julio de 2021 - 5:53 a.m.</span>
+              <span class="newsCard__timestamp">${item.date} - ${item.time}</span>
             </div>
             <div class="newsCard__body">
-              <a href="" class="newsCard__title mt-3">
+              <a href="${item.link}" class="newsCard__title mt-3">
                 ${item.title}
               </a>
               <p class="newsCard__description">
@@ -40,7 +40,7 @@ jQuery(function ($) {
               </p>
             </div>
             <div class="newsCard__footer">
-              <a href="" class="newsCard__button">
+              <a href="${item.link}" class="newsCard__button">
                 Ver más
                 <span class="dashicons dashicons-arrow-right-alt2"></span>
               </a>
@@ -70,7 +70,6 @@ jQuery(function ($) {
     alert('Presiona Ctrl+D para guardar esta página.');
   });
 });
-
 
 (function () {
   const navMenuElements = document.getElementsByClassName('header__nav-link');

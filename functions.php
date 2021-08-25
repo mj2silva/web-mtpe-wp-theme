@@ -209,6 +209,8 @@ function wpFiltroNoticias() {
         'title' => get_the_title(),
         'link' => get_the_permalink(),
         'excerpt' => get_the_excerpt(),
+        'date' => get_the_date(),
+        'time' => get_the_time('g:i a'),
       );
     }
     wp_send_json($return);
