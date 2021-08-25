@@ -18,10 +18,6 @@
 ?>
 
 <main class="container mt-8">  
-  <!-- <h1>Derechos</h1> -->
-  <script>
-    console.log(<?= json_encode($categorias); ?>);
-  </script>
   <div class="row">
     <div class="col-md-4">
       <aside class="my-2 utils no-print social-utils">
@@ -38,11 +34,11 @@
         </div>
         <div id="flush-collapseOne" class="accordion-collapse collapse accordion-responsive" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
-            <form action="">
+            <form id="frm-filtros-noticias" name="frm-filtros-noticias"  method="post" action="">
               <div class="container">
                 <div class="form-group pb-4">
                   <label class="fw-bold mb-2" for="">Filtros de búsqueda</label>
-                  <input class="input" type="text" placeholder="Palabra clave">
+                  <input class="input" name="palabra-clave" type="text" placeholder="Palabra clave" id="palabra-clave">
                 </div>
               </div>
               <div class="container-fluid container--gray py-4">
@@ -50,13 +46,13 @@
                   <label class="fw-bold mb-2" for="">Fecha de publicación</label>
                   <div class="row">
                     <div class="col-5">
-                      <input type="text" class="form-control input" placeholder="Desde" name="start" />
+                      <input type="text" class="form-control input" placeholder="Desde" name="start" id="start" />
                     </div>
                     <div class="col-1">
                       <span class="input-group-addon">-</span>
                     </div>
                     <div class="col-5">
-                      <input type="text" class="form-control input" placeholder="Hasta" name="end" />
+                      <input type="text" class="form-control input" placeholder="Hasta" name="end" id="end" />
                     </div>
                   </div>
                 </div>
@@ -66,12 +62,12 @@
                       if(count($categorias) > 0) 
                       {
                         ?>
-                          <select class="select" aria-placeholder="Tipo de categorías" name="" id="">
-                            <option hidden selected>Tipo de categorías</option>
+                          <select class="select" aria-placeholder="Tipo de categorías" name="categoria" id="categoria">
+                            <option value="" hidden selected>Tipo de categorías</option>
                             <?php 
                               foreach ($categorias as $categoria) {
                                 ?>
-                                  <option value="">
+                                  <option value="<?php echo $categoria->name  ?>">
                                     <?php echo $categoria->name  ?>
                                   </option>
                                 <?php
@@ -111,7 +107,7 @@
           </div>
         </form>
       </div>
-      <div class="container-fluid">
+      <div class="container-fluid" id="contenedor-noticias">
         <?php 
           if ($noticias->have_posts()) {
             while ($noticias->have_posts()) {

@@ -38,6 +38,9 @@ function assets()
   wp_enqueue_script('bootstrap-datepicker-js', get_template_directory_uri() . '/libs/datepicker/js/bootstrap-datepicker.min.js', '', '1.0', true);
   wp_enqueue_script('bootstrap-datepicker-locale', get_template_directory_uri() . '/libs/datepicker/locales/bootstrap-datepicker.es.min.js', '', '1.0', true);
   wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom.js', '', '1.0', true);
+  wp_localize_script('custom', 'wp', array(
+    'ajaxurl' => admin_url('admin-ajax.php')
+  ));
 }
 
 add_action('wp_enqueue_scripts', 'assets');
@@ -178,6 +181,40 @@ function pgRegisterNewsTax()
 
 add_action('init', 'pgRegisterBlock');
 
+add_action("wp_ajax_nopriv_wpFiltroNoticias", "wpFiltroNoticias");
+add_action("wp_ajax_wpFiltroNoticias", "wpFiltroNoticias");
+
+function wpFiltroNoticias() {
+  $args = array(
+    'post_type' => 'noticia',
+    'posts_per_page' => -1,
+    'order' => 'ASC',
+    'orderby' => 'title'
+  );
+  if ($_POST['categoria']){
+    $args['tax_query'] = array(
+      array(
+        'taxonomy' => 'categoria-noticias',
+        'field' => 'slug',
+        'terms' => $_POST['categoria']
+      )
+      );
+  }
+  $noticias = new WP_Query($args);
+  if($noticias->have_posts()){
+    $return = array();
+    while($noticias->have_posts()){
+      $noticias->the_post();
+      $return[] = array(
+        'title' => get_the_title(),
+        'link' => get_the_permalink(),
+        'excerpt' => get_the_excerpt(),
+      );
+    }
+    wp_send_json($return);
+  }
+}
+
 //
 
 function pgRegisterBlock()
@@ -296,3 +333,4 @@ function special_nav_class($classes, $item)
   }
   return $classes;
 } */
+
