@@ -1,7 +1,18 @@
 <?php 
-//Template Name: Página de publicación
+//Template Name: Página de derechos
 ?>
+
 <?php get_header(); ?>
+
+<?php
+    $args = array(
+      'post_type' => 'derecho',
+      'post_per_page' => -1,
+      'order' => 'ASC',
+      'orderby' => 'title',
+    );
+    $derechos = new WP_Query($args);
+?>
 
 <?php 
   $enlaces_relacionados = array(
@@ -31,7 +42,22 @@
           <h1 class="my-3">
             <?php the_title() ?>
           </h1>
-          <?php the_content(); ?>
+          <div class="text">
+            <?php echo get_the_content(); ?>
+          </div>
+          <ul class="list-container">
+          <?php while ($derechos->have_posts()) {
+            $derechos->the_post();
+            ?>
+              <li class="list py-1">
+                <p class="list-item">
+                  <span class="list__title"><?php the_title(); ?>: </span> 
+                  <span class="list__text"><?php echo get_the_content(); ?></span>
+                </p>
+              </li>
+            <?php
+          } ?>
+          </ul>
         <?php
           }
         }
@@ -53,33 +79,8 @@
           </div>
         </div>
         <div class="row pt-4 mx-auto">
-          <div class="ss-box" data-ss-social="share" data-ss-content="false">
-          </div>
-            <button  type="button" id="btnShare" >
-              <span class="icon-utils icon--gob-44 material-icons">share</span>
-              <span>Compartir</span>
-            </button>
-
-
-
-          <div class="col-4 d-flex justify-content-center">
-            <button id="btnPrint" onclick="javascript:window.print()" class="btn-utils">
-              <span class="icon-utils icon--gob-44 material-icons">print</span>
-              <span>Imprimir</span>
-            </button>
-          </div>
-          <div class="col-4 d-flex justify-content-center">
-            <button type="button" id="btnShare" onclick="javascript:window.print()" class="btn-utils">
-              <span class="icon-utils icon--gob-44 material-icons">share</span>
-              <span>Compartir</span>
-            </button>
-          </div>
-          <div class="col-4 d-flex justify-content-center">
-            <button type="button" id="btnSave" class="btn-utils">
-              <span class="icon-utils icon--gob-44 material-icons">bookmark_border</span>
-              <span>Guardar</span>
-            </button>
-          </div>
+          <!-- <div class="ss-box" data-ss-social="share" data-ss-content="false"> -->
+          <?php get_template_part('template-parts/content', 'options') ?>
         </div>
       </aside>
     </div>

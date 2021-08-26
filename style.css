@@ -911,3 +911,32 @@ p {
 .border-gob-start{
   border-left: 2px solid var(--cl-red-700-gob);
 }
+
+.ss-btn{
+	background-color: var(--cl-white-gob) !important;
+}
+
+.list{
+  list-style-type: disc;  
+}
+
+.list-container{
+  margin-left: 1rem;
+}
+
+.list__title{
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.list__text{
+  font-size: 1.25rem;
+}
+.list-item{
+  /* display: flex;
+  flex-direction: row; */
+}
+
+.text p{
+  font-size: 1.25rem;
+}

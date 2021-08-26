@@ -92,10 +92,10 @@ jQuery(function ($) {
       }
     });
   });
-  $('#btnPrint').click(function () {
-    var a = document.getElementsByClassName('printing-area');
-    a.print();
-  });
+  // $('#btnPrint').click(function () {
+  //   var a = document.getElementsByClassName('printing-area');
+  //   a.print();
+  // });
   $('#btnSave').click(function () {
     alert('Presiona Ctrl+D para guardar esta página.');
   });
