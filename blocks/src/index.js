@@ -19,6 +19,10 @@ import ContainerGrayEdit from './components/ContainerGray/ContainerGrayEdit.jsx'
 import ContainerEdit from './components/Container/ContainerEdit.jsx';
 import ContainerSave from './components/Container/ContainerSave.jsx';
 import ContainerGraySave from './components/ContainerGray/ContainerGraySave.jsx';
+import ProcessEdit from './components/Process/ProcessEdit.jsx';
+import ProcessSave from './components/Process/ProcessSave.jsx';
+import ExternalBlueLinkEdit from './components/ExternalBlueLink/ExternalBlueLinkEdit.jsx';
+import ExternalBlueLinkSave from './components/ExternalBlueLink/ExternalBlueLinkSave.jsx';
 
 registerBlockType(
   'mtpe/info-links',
@@ -63,7 +67,11 @@ registerBlockType(
             label: '',
           }
         ]
-      }
+      },
+      title: {
+        type: 'string',
+        default: '',
+      },
     },
     edit: InfoCardsEdit,
     save: InfoCardsSave,
@@ -250,5 +258,51 @@ registerBlockType(
     attributes: {},
     edit: ContainerGrayEdit,
     save: ContainerGraySave,
+  }
+)
+
+registerBlockType(
+  'mtpe/process-guide',
+  {
+    apiVersion: 2,
+    title: 'Guía de proceso',
+    description: 'Item para describir un elemento de manera organizada',
+    icon: 'align-pull-left',
+    category: 'layout',
+    attributes: {
+      title: {
+        type: 'string',
+        default: '',
+      },
+      icon: {
+        type: 'object',
+        default: null,
+      },
+    },
+    edit: ProcessEdit,
+    save: ProcessSave
+  }
+)
+
+registerBlockType(
+  'mtpe/blue-link',
+  {
+    apiVersion: 2,
+    title: 'Link (Azul)',
+    description: 'Link con estilo azul para recursos externos',
+    icon: 'external',
+    category: 'layout',
+    attributes: {
+      label: {
+        type: 'string',
+        default: '',
+      },
+      url: {
+        type: 'string',
+        default: '',
+      },
+    },
+    edit: ExternalBlueLinkEdit,
+    save: ExternalBlueLinkSave,
   }
 )

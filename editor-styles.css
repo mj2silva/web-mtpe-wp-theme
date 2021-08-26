@@ -203,3 +203,39 @@ li {
 .bg-gray {
   background-color: var(--cl-gray-40-gob);
 }
+
+.process-bar {
+  margin: 1rem auto;
+}
+
+.process-bar__header {
+  display: flex;
+  align-items: center;
+}
+
+.process-bar__icon {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.process-bar__title {
+  color: var(--cl-red-700-gob);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.process-bar__icon>img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.process-bar__content {
+  border-left: solid 1px var(--cl-gray-900-gob);
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding-left: 3rem;
+}

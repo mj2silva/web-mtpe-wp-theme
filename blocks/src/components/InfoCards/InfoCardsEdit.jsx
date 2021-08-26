@@ -1,10 +1,17 @@
 import InfoCardInput from './InfoCardInput.jsx';
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, PlainText } from '@wordpress/block-editor';
 
 const InfoCardsEdit = (props) => {
-  const { attributes: { links }, setAttributes } = props;
+  const { attributes: { links, title }, setAttributes } = props;
+  const onTitleChange = (newTitle) => {
+    setAttributes({
+      links,
+      title: newTitle,
+    })
+  }
   const addLink = () => {
     setAttributes({
+      title,
       links: [
         ...links,
         {
@@ -20,17 +27,20 @@ const InfoCardsEdit = (props) => {
     const newLinks = links.filter((link) => {
       return (link.id !== linkToRemove.id);
     })
-    setAttributes({ links: newLinks });
+    setAttributes({ title, links: newLinks });
   }
   const editLink = (newLink) => {
     const newLinks = links.map((link) => {
       return (link.id === newLink.id) ? newLink : link;
     })
-    setAttributes({ links: newLinks });
+    setAttributes({ title, links: newLinks });
   }
   return (
     <div {...useBlockProps()}>
       <div className='container'>
+        <div className="row">
+          <PlainText value={title} onChange={onTitleChange} placeholder="Título del elemento" />
+        </div>
         <div className="row">
           {
             links.map((link) => (
