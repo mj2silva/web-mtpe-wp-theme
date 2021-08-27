@@ -4,6 +4,8 @@
 jQuery(function ($) {
   $('.buscador-noticias').submit(function(e) {
     e.preventDefault();
+    let esBuscadorGeneral = false;
+    let tipoFiltro = null;
     let palabraClave = null;
     let categoria = null;
     let fechaDesde = null;
@@ -12,9 +14,16 @@ jQuery(function ($) {
     // var frm = $(this).data();
     if($(this).attr('id') === 'frm-buscar-noticias'){
       palabraClave = $('#buscador').val();
+      tipoFiltro = 'noticia';
+    }
+    else if ($(this).attr('id') === 'frm-search-bar'){
+      palabraClave = $('#palabra-clave').val();
+      tipoFiltro = ['noticia', 'derecho'];;
+      esBuscadorGeneral = true;
     }
     else{
       palabraClave = $('#palabra-clave').val();
+      tipoFiltro = 'noticia';
       categoria = $('#categoria').val();
       fechaDesde = $('#fecha_desde').val();
       fechaHasta = $('#fecha_hasta').val();
@@ -36,11 +45,13 @@ jQuery(function ($) {
     }
     console.log(fechaDesde);
     console.log(fechaHasta);
+    console.log(tipoFiltro);
     $.ajax({
       url: wp.ajaxurl,
       method: 'POST',
       data: {
         'action': 'wpFiltroNoticias',
+        'tipo-filtro': tipoFiltro,
         'palabra-clave': palabraClave,
         'fecha-desde': fechaDesde,
         'fecha-hasta': fechaHasta,
@@ -58,7 +69,7 @@ jQuery(function ($) {
           data.forEach(item => {
             html += `<div class="newsCard container-fluid container--gray py-4 my-3">
             <div class="newsCard__header">
-              <span class="newsCard__type">Orientación, trámites y servicios</span>
+              <span class="newsCard__type">${item.type}</span>
               <span class="newsCard__timestamp">${item.date} - ${item.time}</span>
             </div>
             <div class="newsCard__body">
@@ -76,7 +87,13 @@ jQuery(function ($) {
               </a>
             </div>
           </div>`;
-          $('#contenedor-noticias').html(html);
+          if(esBuscadorGeneral){
+            $('#postArea').html(html);
+          }
+          else {
+            
+            $('#contenedor-noticias').html(html);
+          }
           });
         }
         else {

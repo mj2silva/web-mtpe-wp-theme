@@ -190,8 +190,9 @@ add_action("wp_ajax_nopriv_wpFiltroNoticias", "wpFiltroNoticias");
 add_action("wp_ajax_wpFiltroNoticias", "wpFiltroNoticias");
 
 function wpFiltroNoticias() {
+  $tipo_filtro = $_POST['tipo-filtro'];
   $args = array(
-    'post_type' => 'noticia',
+    'post_type' => $tipo_filtro,
     'posts_per_page' => -1,
     'order' => 'ASC',
     'orderby' => 'title'
@@ -228,6 +229,7 @@ function wpFiltroNoticias() {
         'excerpt' => get_the_excerpt(),
         'date' => get_the_date(),
         'time' => get_the_time('g:i a'),
+        'type' => $_POST['categoria'],
       );
     }
     wp_send_json($return);

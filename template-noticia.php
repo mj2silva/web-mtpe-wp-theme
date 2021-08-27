@@ -128,7 +128,7 @@
                   <?php the_title(); ?>
                 </a>
                 <p class="newsCard__description">
-                  <?php the_excerpt(); ?>
+                  <?php echo get_the_excerpt(); ?>
                 </p>
               </div>
               <div class="newsCard__footer">
