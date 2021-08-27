@@ -48,6 +48,10 @@ li {
   color: var(--cl-gray-800-gob);
 }
 
+.link--secondary {
+  font-size: 1rem;
+}
+
 .link__text {
   font-size: inherit;
   color: inherit;

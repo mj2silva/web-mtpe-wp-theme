@@ -3,10 +3,10 @@ import { PlainText, InnerBlocks, MediaUpload, MediaUploadCheck, useBlockProps } 
 import { Button } from '@wordpress/components';
 
 const ProcessSave = (props) => {
-  const { attributes: { title, icon } } = props;
+  const { attributes: { title, icon, anchor } } = props;
 
   return (
-    <div className="container">
+    <div id={anchor} className="container">
       <div class="process-bar">
         <div class="row process-bar__header">
           <div class="col-2 p-0 process-bar__icon">

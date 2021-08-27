@@ -23,6 +23,8 @@ import ProcessEdit from './components/Process/ProcessEdit.jsx';
 import ProcessSave from './components/Process/ProcessSave.jsx';
 import ExternalBlueLinkEdit from './components/ExternalBlueLink/ExternalBlueLinkEdit.jsx';
 import ExternalBlueLinkSave from './components/ExternalBlueLink/ExternalBlueLinkSave.jsx';
+import BorderedLinkEdit from './components/BorderedLink/BorderedLinkEdit.jsx';
+import BorderedLinkSave from './components/BorderedLink/BorderedLinkSave.jsx';
 
 registerBlockType(
   'mtpe/info-links',
@@ -138,7 +140,10 @@ registerBlockType(
     category: 'widgets',
     edit: withSelect((select) => {
       return {
-        socialRights: select('core').getEntityRecords('postType', 'derecho')
+        socialRights: select('core').getEntityRecords('postType', 'derecho', {
+          'per_page': 6,
+          'order': 'asc',
+        })
       };
     })(SocialRightsSave),
   }
@@ -206,6 +211,9 @@ registerBlockType(
     description: 'Bloque de información de contacto predeterminada para el mtpe',
     icon: 'phone',
     category: 'layout',
+    supports: {
+      anchor: true,
+    },
     attributes: {
       address: {
         type: 'string',
@@ -226,6 +234,12 @@ registerBlockType(
       background: {
         type: 'object',
         default: null,
+      },
+      anchor: {
+        type: 'string',
+        source: 'attribute',
+        attribute: 'id',
+        selector: '*'
       }
     },
     edit: ContactEdit,
@@ -269,6 +283,9 @@ registerBlockType(
     description: 'Item para describir un elemento de manera organizada',
     icon: 'align-pull-left',
     category: 'layout',
+    supports: {
+      anchor: true,
+    },
     attributes: {
       title: {
         type: 'string',
@@ -278,6 +295,12 @@ registerBlockType(
         type: 'object',
         default: null,
       },
+      anchor: {
+        type: 'string',
+        source: 'attribute',
+        attribute: 'id',
+        selector: '*'
+      }
     },
     edit: ProcessEdit,
     save: ProcessSave
@@ -304,5 +327,28 @@ registerBlockType(
     },
     edit: ExternalBlueLinkEdit,
     save: ExternalBlueLinkSave,
+  }
+)
+
+registerBlockType(
+  'mtpe/bordered-link',
+  {
+    apiVersion: 2,
+    title: 'Link en bloque (Azul)',
+    description: 'Link en caja ancha',
+    icon: 'external',
+    category: 'layout',
+    attributes: {
+      label: {
+        type: 'string',
+        default: '',
+      },
+      url: {
+        type: 'string',
+        default: '',
+      },
+    },
+    edit: BorderedLinkEdit,
+    save: BorderedLinkSave,
   }
 )

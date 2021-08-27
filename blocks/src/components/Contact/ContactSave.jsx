@@ -1,9 +1,9 @@
 import { RichText, PlainText, MediaUpload, MediaUploadCheck, useBlockProps } from '@wordpress/block-editor';
 
 const ContactSave = (props) => {
-  const { attributes: { mapUrl, background, address, phone, schedule } } = props;
+  const { attributes: { mapUrl, background, address, phone, schedule, anchor } } = props;
   return (
-    <div class="container-fluid m-0 p-0 my-4">
+    <div id={anchor} class="container-fluid m-0 p-0">
       <div id="contactInfo" class="carousel slide contactInfo" data-bs-ride="carousel">
         <div class="d-none d-lg-block carousel-inner contactInfo__carousel">
           <div class="carousel-item active">

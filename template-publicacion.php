@@ -1,19 +1,19 @@
-<?php 
+<?php
 //Template Name: Página de publicación
 ?>
 <?php get_header(); ?>
 
-<?php 
-  $enlaces_relacionados = array(
-    array(
-      'title' => 'Los Derechos Laborales de los Trabajadores Migrantes',
-      'link' => '#'
-    ),
-    array(
-      'title' => 'Proceso Migratorio Laboral',
-      'link' => '#'
-    )
-  );
+<?php
+$enlaces_relacionados = array(
+  array(
+    'title' => 'Los Derechos Laborales de los Trabajadores Migrantes',
+    'link' => '#'
+  ),
+  array(
+    'title' => 'Proceso Migratorio Laboral',
+    'link' => '#'
+  )
+);
 ?>
 
 <main class="container mt-8">
@@ -21,20 +21,20 @@
   <div class="row">
     <div id="postArea" class="printing-area col-md-8">
       <div class="mb-4 mt-4 ps-2 border-gob-start">
-        <a class="link--secondary link--secondary-regular" href="">Dirección de Seguridad Social y Migración Laboral</a>
+        <a class="link--secondary-template link--secondary-regular" href="">Dirección de Seguridad Social y Migración Laboral</a>
       </div>
       <?php
-        if (have_posts()) {
-          while (have_posts()) {
-            the_post();
-        ?>
+      if (have_posts()) {
+        while (have_posts()) {
+          the_post();
+      ?>
           <h1 class="my-3">
             <?php the_title() ?>
           </h1>
           <?php the_content(); ?>
-        <?php
-          }
+      <?php
         }
+      }
       ?>
     </div>
     <div class="col-md-4">
@@ -43,11 +43,11 @@
           <h5>Enlaces relacionados</h5>
           <div class="relatedLinks-container pt-1 pb-3">
             <?php foreach ($enlaces_relacionados as $enlace) {
-              ?>
-                <div class="row">
-                  <a class="link--secondary my-2" href="<?php echo $enlace['link'] ?>"><?php echo $enlace['title'] ?></a>
-                </div>
-              <?php
+            ?>
+              <div class="row">
+                <a class="link--secondary-template my-2" href="<?php echo $enlace['link'] ?>"><?php echo $enlace['title'] ?></a>
+              </div>
+            <?php
             }
             ?>
           </div>

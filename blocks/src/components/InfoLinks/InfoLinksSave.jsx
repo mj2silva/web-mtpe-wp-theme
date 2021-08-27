@@ -12,12 +12,12 @@ const InfoLinksSave = (props) => {
             <div class="row">
               {
                 links.map((link) => (
-                  <div class="col-md-3 col-xs-12">
+                  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card--no-bar">
                       <div class="icon-container py-4">
                         <img class="icon card__super-icon" src={link.image?.url} alt={link.image?.alt} />
                       </div>
-                      <a href="{link.url}" class="button--center button--primary">
+                      <a href={link.url} class="button--center button--primary">
                         <span class="text-center text--bold">
                           {link.label}
                         </span>

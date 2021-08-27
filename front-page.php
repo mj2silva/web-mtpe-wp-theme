@@ -20,8 +20,8 @@ $fields = get_fields();
                 <?php echo $fields['mensaje_presentacion']; ?>
               </div>
               <div class="presentation__buttons-container text-start">
-                <a href="#" class="btn btn-primary presentation__button">Migración laboral</a>
-                <a href="#" class="btn btn-primary presentation__button">Seguridad social</a>
+                <a href="/migracion-laboral" class="btn btn-primary presentation__button">Migración Laboral</a>
+                <a href="/seguridad-social" class="btn btn-primary presentation__button">Seguridad Social</a>
               </div>
             </div>
           </div>
@@ -34,8 +34,8 @@ $fields = get_fields();
             <?php echo $fields['mensaje_presentacion']; ?>
           </div>
           <div class="presentation__buttons-container text-start">
-            <a href="/proceso-migratorio-laboral" class="btn btn-primary presentation__button">Migración laboral</a>
-            <a href="/seguridad-social" class="btn btn-primary presentation__button">Seguridad social</a>
+            <a href="/migracion-laboral" class="btn btn-primary presentation__button">Migración Laboral</a>
+            <a href="/seguridad-social" class="btn btn-primary presentation__button">Seguridad Social</a>
           </div>
         </div>
       </div>

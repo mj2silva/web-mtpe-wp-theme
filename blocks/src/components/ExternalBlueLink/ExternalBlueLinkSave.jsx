@@ -4,7 +4,7 @@ const ExternalBlueLinkSave = (props) => {
     <li>
       {url
         ? (
-          <a class="link link--secondary link--list" href={url}>
+          <a target="_blank" rel="noopener noreferrer" class="link link--secondary link--list" href={url}>
             <span class="link__text">{label}{' '}</span>
             <span class="material-icons link__icon">open_in_new</span>
           </a>)

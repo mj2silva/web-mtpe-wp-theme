@@ -146,12 +146,13 @@ function noticias_type()
     'labels' => $labels,
     'supports' => $supports,
     'public' => true,
+    'has_archive' => true,
     'show_in_menu' => true,
     'menu_position' => 5,
     'menu_icon' => 'dashicons-media-spreadsheet',
     'can_export' => true,
     'publicly_queryable' => true,
-    'rewrite' => false,
+    'rewrite' => true,
     'show_in_rest' => true
   );
   register_post_type('noticia', $args);
@@ -277,8 +278,9 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
 {
   $recent_posts = wp_get_recent_posts(array(
     'post_type' => 'derecho',
-    'numberposts' => -1,
+    'numberposts' => 6,
     'post_status' => 'publish',
+    'order' => 'asc'
   ));
   if (count($recent_posts) === 0) {
     return 'No posts';
@@ -292,15 +294,14 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
           Los trabajadores migrantes del Régimen Laboral de la Actividad Privada tienen entre sus principales derechos socio laborales los siguientes:
         </p>
       <div class="container my-3 container--gray">
-        <ul class="row py-4">';
+        <ul class="row py-4 ps-4">';
   foreach ($recent_posts as $post) {
     $post_id = $post['ID'];
     $render = $render . sprintf(
-      '<div class="col-4 d-flex">
-          <li class="list__element-item">
-            <a class="link text-center" href="%1$s">
+      '<div class="col-12 col-sm-6 col-md-4 d-flex d-sm-block">
+          <li class="list__element-item" style="list-style-position: outside">
+            <a class="link" href="%1$s">
               <span class="link__text">%2$s</span>
-              <span class="material-icons link__icon">open_in_new</span>
             </a>
           </li>
         </div>',
@@ -313,7 +314,7 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
           </div>
       <div class="row">
         <div class="col d-flex flex-row-reverse">
-          <a href="derechos-laborales" class="button button--secondary" style="justify-content: space-between;">
+          <a href="/derechos-socio-laborales" class="button button--secondary" style="justify-content: space-between;">
             Ver más derechos
             <svg class="ml-4 button__icon" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26">
               <path fill="currentColor" d="M12.5.5l-2.203 2.203 8.719 8.735H0v3.125h19.016l-8.72 8.734L12.5 25.5 25 13z"></path>
