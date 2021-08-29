@@ -53,33 +53,7 @@
           </div>
         </div>
         <div class="row pt-4 mx-auto">
-          <div class="ss-box" data-ss-social="share" data-ss-content="false">
-          </div>
-            <button  type="button" id="btnShare" >
-              <span class="icon-utils icon--gob-44 material-icons">share</span>
-              <span>Compartir</span>
-            </button>
-
-
-
-          <div class="col-4 d-flex justify-content-center">
-            <button id="btnPrint" onclick="javascript:window.print()" class="btn-utils">
-              <span class="icon-utils icon--gob-44 material-icons">print</span>
-              <span>Imprimir</span>
-            </button>
-          </div>
-          <div class="col-4 d-flex justify-content-center">
-            <button type="button" id="btnShare" onclick="javascript:window.print()" class="btn-utils">
-              <span class="icon-utils icon--gob-44 material-icons">share</span>
-              <span>Compartir</span>
-            </button>
-          </div>
-          <div class="col-4 d-flex justify-content-center">
-            <button type="button" id="btnSave" class="btn-utils">
-              <span class="icon-utils icon--gob-44 material-icons">bookmark_border</span>
-              <span>Guardar</span>
-            </button>
-          </div>
+          <?php get_template_part('template-parts/content', 'options') ?>
         </div>
       </aside>
     </div>

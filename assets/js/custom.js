@@ -46,6 +46,8 @@ jQuery(function ($) {
     console.log(fechaDesde);
     console.log(fechaHasta);
     console.log(tipoFiltro);
+    console.log(esBuscadorGeneral);
+    console.log(palabraClave);
     $.ajax({
       url: wp.ajaxurl,
       method: 'POST',
@@ -64,6 +66,7 @@ jQuery(function ($) {
       },
       success: function(data) {
         console.log(data);
+        let html = "";
         if(data !=0 ){
           let html ="";
           data.forEach(item => {
@@ -91,7 +94,6 @@ jQuery(function ($) {
             $('#postArea').html(html);
           }
           else {
-            
             $('#contenedor-noticias').html(html);
           }
           });
