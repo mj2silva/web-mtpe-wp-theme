@@ -5,7 +5,7 @@
   </button>
 </div>
 <div class="col-4 d-flex justify-content-center">
-  <button type="button" id="btnShare" onclick="javascript:window.print()" class="btn-utils">
+  <button type="button" id="btnShare" class="btn-utils ss-btn-share">
     <span class="icon-utils icon--gob-44 material-icons">share</span>
     <span>Compartir</span>
   </button>

@@ -29,15 +29,7 @@
             {
               ?>
                 <div class="col-8 col-md-6 offset-md-2 offset-lg-0 col-lg-4">
-                  <form role="search" method="get" id="searchform" class="searchform " action="">
-                    <div class="input-group input-group-lg md-3">
-                      <span class="input-group-text searchbar__icon" id="basic-addon1">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/icons/search_black_24dp.svg">
-                      </span>
-                      <label for="search" class="visually-hidden">Buscar</label>
-                      <input class="form-control searchbar__input" name="s" id="s" placeholder="Buscar en DSSML" />
-                    </div>
-                  </form>
+                <?php get_template_part('template-parts/content', 'searchbar') ?>
                 </div>
               <?php
             }
