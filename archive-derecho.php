@@ -18,11 +18,11 @@ $derechos = new WP_Query($args);
 $enlaces_relacionados = array(
   array(
     'title' => 'Los Derechos Laborales de los Trabajadores Migrantes',
-    'link' => '/derechos-laborales'
+    'link' => '#'
   ),
   array(
     'title' => 'Proceso Migratorio Laboral',
-    'link' => '/proceso-migratorio-laboral'
+    'link' => '#'
   )
 );
 ?>
@@ -32,7 +32,7 @@ $enlaces_relacionados = array(
   <div class="row">
     <div id="postArea" class="printing-area col-md-8">
       <div class="mb-4 mt-4 ps-2 border-gob-start">
-        <a class="link--secondary-template link--secondary-regular" href="/">Dirección de Seguridad Social y Migración Laboral</a>
+        <a class="link--secondary link--secondary-regular" href="">Dirección de Seguridad Social y Migración Laboral</a>
       </div>
       <?php
       if (have_posts()) {
@@ -71,7 +71,7 @@ $enlaces_relacionados = array(
             <?php foreach ($enlaces_relacionados as $enlace) {
             ?>
               <div class="row">
-                <a class="link--secondary-template my-2" href="<?php echo $enlace['link'] ?>"><?php echo $enlace['title'] ?></a>
+                <a class="link--secondary my-2" href="<?php echo $enlace['link'] ?>"><?php echo $enlace['title'] ?></a>
               </div>
             <?php
             }

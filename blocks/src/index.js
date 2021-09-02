@@ -15,6 +15,16 @@ import Collapse2Edit from './components/Collapse2/Collapse2Edit.jsx';
 import Collapse2Save from './components/Collapse2/Collapse2Save.jsx';
 import ContactEdit from './components/Contact/ContactEdit.jsx';
 import ContactSave from './components/Contact/ContactSave.jsx';
+import ContainerGrayEdit from './components/ContainerGray/ContainerGrayEdit.jsx';
+import ContainerEdit from './components/Container/ContainerEdit.jsx';
+import ContainerSave from './components/Container/ContainerSave.jsx';
+import ContainerGraySave from './components/ContainerGray/ContainerGraySave.jsx';
+import ProcessEdit from './components/Process/ProcessEdit.jsx';
+import ProcessSave from './components/Process/ProcessSave.jsx';
+import ExternalBlueLinkEdit from './components/ExternalBlueLink/ExternalBlueLinkEdit.jsx';
+import ExternalBlueLinkSave from './components/ExternalBlueLink/ExternalBlueLinkSave.jsx';
+import BorderedLinkEdit from './components/BorderedLink/BorderedLinkEdit.jsx';
+import BorderedLinkSave from './components/BorderedLink/BorderedLinkSave.jsx';
 
 registerBlockType(
   'mtpe/info-links',
@@ -59,7 +69,11 @@ registerBlockType(
             label: '',
           }
         ]
-      }
+      },
+      title: {
+        type: 'string',
+        default: '',
+      },
     },
     edit: InfoCardsEdit,
     save: InfoCardsSave,
@@ -126,7 +140,10 @@ registerBlockType(
     category: 'widgets',
     edit: withSelect((select) => {
       return {
-        socialRights: select('core').getEntityRecords('postType', 'derecho')
+        socialRights: select('core').getEntityRecords('postType', 'derecho', {
+          'per_page': 6,
+          'order': 'asc',
+        })
       };
     })(SocialRightsSave),
   }
@@ -149,6 +166,10 @@ registerBlockType(
         type: 'string',
         default: '',
       },
+      id: {
+        type: 'string',
+        default: '',
+      }
     },
     edit: Collapse1Edit,
     save: Collapse1Save,
@@ -190,6 +211,9 @@ registerBlockType(
     description: 'Bloque de información de contacto predeterminada para el mtpe',
     icon: 'phone',
     category: 'layout',
+    supports: {
+      anchor: true,
+    },
     attributes: {
       address: {
         type: 'string',
@@ -210,9 +234,121 @@ registerBlockType(
       background: {
         type: 'object',
         default: null,
+      },
+      anchor: {
+        type: 'string',
+        source: 'attribute',
+        attribute: 'id',
+        selector: '*'
       }
     },
     edit: ContactEdit,
     save: ContactSave,
+  }
+)
+
+registerBlockType(
+  'mtpe/container',
+  {
+    apiVersion: 2,
+    title: 'Contenedor',
+    description: 'Contenedor simple para un bloque o bloques de la página',
+    icon: 'align-wide',
+    category: 'layout',
+    attributes: {},
+    edit: ContainerEdit,
+    save: ContainerSave,
+  }
+)
+
+registerBlockType(
+  'mtpe/container-gray',
+  {
+    apiVersion: 2,
+    title: 'Contenedor gris',
+    description: 'Uso para crear contenedores con fondo gris claro',
+    icon: 'align-wide',
+    category: 'layout',
+    attributes: {},
+    edit: ContainerGrayEdit,
+    save: ContainerGraySave,
+  }
+)
+
+registerBlockType(
+  'mtpe/process-guide',
+  {
+    apiVersion: 2,
+    title: 'Guía de proceso',
+    description: 'Item para describir un elemento de manera organizada',
+    icon: 'align-pull-left',
+    category: 'layout',
+    supports: {
+      anchor: true,
+    },
+    attributes: {
+      title: {
+        type: 'string',
+        default: '',
+      },
+      icon: {
+        type: 'object',
+        default: null,
+      },
+      anchor: {
+        type: 'string',
+        source: 'attribute',
+        attribute: 'id',
+        selector: '*'
+      }
+    },
+    edit: ProcessEdit,
+    save: ProcessSave
+  }
+)
+
+registerBlockType(
+  'mtpe/blue-link',
+  {
+    apiVersion: 2,
+    title: 'Link (Azul)',
+    description: 'Link con estilo azul para recursos externos',
+    icon: 'external',
+    category: 'layout',
+    attributes: {
+      label: {
+        type: 'string',
+        default: '',
+      },
+      url: {
+        type: 'string',
+        default: '',
+      },
+    },
+    edit: ExternalBlueLinkEdit,
+    save: ExternalBlueLinkSave,
+  }
+)
+
+registerBlockType(
+  'mtpe/bordered-link',
+  {
+    apiVersion: 2,
+    title: 'Link en bloque (Azul)',
+    description: 'Link en caja ancha',
+    icon: 'external',
+    category: 'layout',
+    attributes: {
+      label: {
+        type: 'string',
+        default: '',
+      },
+      url: {
+        type: 'string',
+        default: '',
+      },
+    },
+    edit: BorderedLinkEdit,
+    save: BorderedLinkSave,
   }
 )

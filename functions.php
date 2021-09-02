@@ -127,6 +127,7 @@ function derechos_laborales_type()
     'can_export' => true,
     'publicly_queryable' => true,
     'rewrite' => true,
+    'has_archive' => true,
     'show_in_rest' => true
   );
   register_post_type('derecho', $args);
@@ -151,12 +152,13 @@ function noticias_type()
     'labels' => $labels,
     'supports' => $supports,
     'public' => true,
+    'has_archive' => true,
     'show_in_menu' => true,
     'menu_position' => 5,
     'menu_icon' => 'dashicons-media-spreadsheet',
     'can_export' => true,
     'publicly_queryable' => true,
-    'rewrite' => false,
+    'rewrite' => true,
     'show_in_rest' => true
   );
   register_post_type('noticia', $args);
@@ -189,39 +191,41 @@ add_action('init', 'pgRegisterBlock');
 add_action("wp_ajax_nopriv_wpFiltroNoticias", "wpFiltroNoticias");
 add_action("wp_ajax_wpFiltroNoticias", "wpFiltroNoticias");
 
-function wpFiltroNoticias() {
+function wpFiltroNoticias()
+{
   $tipo_filtro = $_POST['tipo-filtro'];
   $args = array(
     'post_type' => $tipo_filtro,
-    'posts_per_page' => -1,
-    'order' => 'ASC',
-    'orderby' => 'title'
+    'posts_per_page' => 6,
+    'order' => 'DESC',
+    'orderby' => 'date',
+    'post_status' => 'publish',
+    'taxonomy' => 'categoria-noticias',
   );
-  if ($_POST['fecha-desde'] && $_POST['fecha-hasta']){
+  if ($_POST['fecha-desde'] && $_POST['fecha-hasta']) {
     $args['date_query'] = array(
       array(
-          'after' => $_POST['fecha-desde'],
-          'before' => $_POST['fecha-hasta'],
-          'inclusive' => true,
+        'after' => $_POST['fecha-desde'],
+        'before' => $_POST['fecha-hasta'],
+        'inclusive' => true,
       ),
     );
   }
-  if ($_POST['categoria']){
+  if ($_POST['categoria']) {
     $args['tax_query'] = array(
       array(
-        'taxonomy' => 'categoria-noticias',
         'field' => 'slug',
         'terms' => $_POST['categoria']
       )
-      );
+    );
   }
-  if ($_POST['palabra-clave']){
+  if ($_POST['palabra-clave']) {
     $args['s'] = $_POST['palabra-clave'];
   }
   $noticias = new WP_Query($args);
-  if($noticias->have_posts()){
+  if ($noticias->have_posts()) {
     $return = array();
-    while($noticias->have_posts()){
+    while ($noticias->have_posts()) {
       $noticias->the_post();
       $return[] = array(
         'title' => get_the_title(),
@@ -229,7 +233,11 @@ function wpFiltroNoticias() {
         'excerpt' => get_the_excerpt(),
         'date' => get_the_date(),
         'time' => get_the_time('g:i a'),
-        'type' => $_POST['categoria'],
+        'type' => get_categories(array(
+          'taxonomy' => 'categoria-noticias',
+          'orderby' => 'name',
+          'order' => 'asc',
+        ))
       );
     }
     wp_send_json($return);
@@ -283,30 +291,30 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
 {
   $recent_posts = wp_get_recent_posts(array(
     'post_type' => 'derecho',
-    'numberposts' => -1,
+    'numberposts' => 6,
     'post_status' => 'publish',
+    'order' => 'asc'
   ));
   if (count($recent_posts) === 0) {
     return 'No posts';
   }
   $render =
     '
-    <section id="derechos-socio-laborales" class="container py-5 p-4">
+    <section id="derechos-socio-laborales" class="container py-4">
       <div class="py-4">
         <h2>Conoce los Derechos Socio Laborales de los Trabajadores Migrantes</h2>
         <p class="h5">
           Los trabajadores migrantes del Régimen Laboral de la Actividad Privada tienen entre sus principales derechos socio laborales los siguientes:
         </p>
       <div class="container my-3 container--gray">
-        <ul class="row py-4">';
+        <ul class="row py-4 ps-4">';
   foreach ($recent_posts as $post) {
     $post_id = $post['ID'];
     $render = $render . sprintf(
-      '<div class="col-4 d-flex">
-          <li class="list__element-item">
-            <a class="link text-center" href="%1$s">
+      '<div class="col-12 col-sm-6 col-md-4 d-flex d-sm-block">
+          <li class="list__element-item" style="list-style-position: outside">
+            <a class="link" href="%1$s">
               <span class="link__text">%2$s</span>
-              <span class="material-icons link__icon">open_in_new</span>
             </a>
           </li>
         </div>',
@@ -319,7 +327,7 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
           </div>
       <div class="row">
         <div class="col d-flex flex-row-reverse">
-          <a href="derechos-laborales" class="button button--secondary" style="justify-content: space-between;">
+          <a href="/derechos-socio-laborales" class="button button--secondary" style="justify-content: space-between;">
             Ver más derechos
             <svg class="ml-4 button__icon" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26">
               <path fill="currentColor" d="M12.5.5l-2.203 2.203 8.719 8.735H0v3.125h19.016l-8.72 8.734L12.5 25.5 25 13z"></path>
@@ -355,3 +363,73 @@ function special_nav_class($classes, $item)
   return $classes;
 } */
 
+function wpbeginner_numeric_posts_nav()
+{
+
+  if (is_singular())
+    return;
+
+  global $wp_query;
+
+  /** Stop execution if there's only 1 page */
+  if ($wp_query->max_num_pages <= 1)
+    return;
+
+  $paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
+  $max   = intval($wp_query->max_num_pages);
+
+  /** Add current page to the array */
+  if ($paged >= 1)
+    $links[] = $paged;
+
+  /** Add the pages around the current page to the array */
+  if ($paged >= 3) {
+    $links[] = $paged - 1;
+    $links[] = $paged - 2;
+  }
+
+  if (($paged + 2) <= $max) {
+    $links[] = $paged + 2;
+    $links[] = $paged + 1;
+  }
+
+  echo '<div class="navigation"><ul>' . "\n";
+
+  /** Previous Post Link */
+  if (get_previous_posts_link())
+    printf('<li>%s</li>' . "\n", get_previous_posts_link());
+
+  /** Link to first page, plus ellipses if necessary */
+  if (!in_array(1, $links)) {
+    $class = 1 == $paged ? ' class="active"' : '';
+
+    printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
+
+    if (!in_array(2, $links))
+      echo '<li>…</li>';
+  }
+
+  /** Link to current page, plus 2 pages in either direction if necessary */
+  sort($links);
+  foreach ((array) $links as $link) {
+    $class = $paged == $link ? ' class="active"' : '';
+    printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
+  }
+
+  /** Link to last page, plus ellipses if necessary */
+  if (!in_array($max, $links)) {
+    if (!in_array($max - 1, $links))
+      echo '<li>…</li>' . "\n";
+
+    $class = $paged == $max ? ' class="active"' : '';
+    printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
+  }
+
+  /** Next Post Link */
+  if (get_next_posts_link())
+    printf('<li>%s</li>' . "\n", get_next_posts_link());
+
+  echo '</ul></div>' . "\n";
+}
+
+add_post_type_support('page', 'excerpt');

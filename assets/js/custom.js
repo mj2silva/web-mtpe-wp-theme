@@ -1,8 +1,5 @@
-// // Este es un archivo inicial, debe ser borrado o modificado
-// console.log("Archivo inicial");
-
 jQuery(function ($) {
-  $('.buscador-noticias').submit(function(e) {
+  $('.buscador-noticias').submit(function (e) {
     e.preventDefault();
     let esBuscadorGeneral = false;
     let tipoFiltro = null;
@@ -11,30 +8,27 @@ jQuery(function ($) {
     let fechaDesde = null;
     let fechaHasta = null;
     console.log($(this).attr('id'));
-    // var frm = $(this).data();
-    if($(this).attr('id') === 'frm-buscar-noticias'){
+    if ($(this).attr('id') === 'frm-buscar-noticias') {
       palabraClave = $('#buscador').val();
       tipoFiltro = 'noticia';
     }
-    else if ($(this).attr('id') === 'frm-search-bar'){
+    else if ($(this).attr('id') === 'frm-search-bar') {
       palabraClave = $('#palabra-clave').val();
       tipoFiltro = ['noticia', 'derecho'];;
       esBuscadorGeneral = true;
     }
-    else{
+    else {
       palabraClave = $('#palabra-clave').val();
       tipoFiltro = 'noticia';
       categoria = $('#categoria').val();
       fechaDesde = $('#fecha_desde').val();
       fechaHasta = $('#fecha_hasta').val();
-      if(fechaDesde && fechaHasta){
+      if (fechaDesde && fechaHasta) {
         console.log(fechaDesde);
         fechaDesde = fechaDesde.split('/');
-        // fechaDesde = `${fechaDesde[2]}-${fechaDesde[1]}-${fechaDesde[0]}`;
         fechaDesde = new Date(`${fechaDesde[1]}/${fechaDesde[0]}/${fechaDesde[2]}`);
         fechaDesde = fechaDesde.getFullYear() + "-" + (fechaDesde.getMonth() + 1) + "-" + fechaDesde.getDate();
         fechaHasta = fechaHasta.split('/');
-        // fechaHasta = `${fechaHasta[2]}-${fechaHasta[1]}-${fechaHasta[0]}`;
         fechaHasta = new Date(`${fechaHasta[1]}/${fechaHasta[0]}/${fechaHasta[2]}`);
         fechaHasta = fechaHasta.getFullYear() + "-" + (fechaHasta.getMonth() + 1) + "-" + fechaHasta.getDate();
       }
@@ -43,11 +37,6 @@ jQuery(function ($) {
         fechaDesde = null;
       }
     }
-    console.log(fechaDesde);
-    console.log(fechaHasta);
-    console.log(tipoFiltro);
-    console.log(esBuscadorGeneral);
-    console.log(palabraClave);
     $.ajax({
       url: wp.ajaxurl,
       method: 'POST',
@@ -59,20 +48,19 @@ jQuery(function ($) {
         'fecha-hasta': fechaHasta,
         'categoria': categoria,
       },
-      beforeSend: function() {
+      beforeSend: function () {
         $('#contenedor-noticias').html(
           '<div class="spinner-container"><div class="spinner"></div></div>'
         );
       },
-      success: function(data) {
-        console.log(data);
-        let html = "";
-        if(data !=0 ){
-          let html ="";
+      success: function (data) {
+        if (data != 0) {
+          let html = "";
           data.forEach(item => {
+            console.log(item);
             html += `<div class="newsCard container-fluid container--gray py-4 my-3">
             <div class="newsCard__header">
-              <span class="newsCard__type">${item.type}</span>
+              <span class="newsCard__type">${item.type?.map(cat => cat.cat_name).join(', ') || ''}</span>
               <span class="newsCard__timestamp">${item.date} - ${item.time}</span>
             </div>
             <div class="newsCard__body">
@@ -90,12 +78,12 @@ jQuery(function ($) {
               </a>
             </div>
           </div>`;
-          if(esBuscadorGeneral){
-            $('#postArea').html(html);
-          }
-          else {
-            $('#contenedor-noticias').html(html);
-          }
+            if (esBuscadorGeneral) {
+              $('#postArea').html(html);
+            }
+            else {
+              $('#contenedor-noticias').html(html);
+            }
           });
         }
         else {
@@ -104,17 +92,13 @@ jQuery(function ($) {
           );
         }
       },
-      error: function(error) {
+      error: function (error) {
         $('#contenedor-noticias').html(
           'No se encontraron resultados...'
         );
       }
     });
   });
-  // $('#btnPrint').click(function () {
-  //   var a = document.getElementsByClassName('printing-area');
-  //   a.print();
-  // });
   $('#btnSave').click(function () {
     alert('Presiona Ctrl+D para guardar esta página.');
   });

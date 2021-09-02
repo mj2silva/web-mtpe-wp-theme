@@ -45,7 +45,7 @@ const InfoLinkInput = (props) => {
                     onClick={() => { setLink({ ...link, image: null }) }}
                     className="button is-small"
                   >
-                    Remove
+                    <span className='material-icons'>delete</span>
                   </Button>
                 </div>
               )
@@ -55,7 +55,7 @@ const InfoLinkInput = (props) => {
                   onClick={open}
                   className="button"
                 >
-                  Upload Image
+                  Subir imagen
                 </Button>
               )
           )}

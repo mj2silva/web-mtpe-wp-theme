@@ -1,5 +1,4 @@
-import InfoCardInput from './InfoCardInput.jsx';
-import { useBlockProps } from '@wordpress/block-editor';
+import InfoCardInput from './InfoCardInput.jsx'
 
 const InfoCardsEdit = (props) => {
   const { attributes: { links }, setAttributes } = props;
@@ -29,19 +28,17 @@ const InfoCardsEdit = (props) => {
     setAttributes({ links: newLinks });
   }
   return (
-    <div {...useBlockProps()}>
-      <div className='container'>
-        <div className="row">
-          {
-            links.map((link) => (
-              <div className="col-3">
-                <InfoCardInput link={link} setLink={editLink} removeLink={removeLink} />
-              </div>
-            ))
-          }
-        </div>
-        <button className="button add-new-button" onClick={addLink}>Añadir nueva cartilla informativa</button>
+    <div className='container'>
+      <div className="row">
+        {
+          links.map((link) => (
+            <div className="col-3">
+              <InfoCardInput link={link} setLink={editLink} removeLink={removeLink} />
+            </div>
+          ))
+        }
       </div>
+      <button className="button add-new-button" onClick={addLink}>Añadir nueva cartilla informativa</button>
     </div>
   );
 }
