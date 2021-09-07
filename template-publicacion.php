@@ -7,11 +7,11 @@
 $enlaces_relacionados = array(
   array(
     'title' => 'Los Derechos Laborales de los Trabajadores Migrantes',
-    'link' => '/derechos-laborales'
+    'link' => '/migrante/derecho'
   ),
   array(
     'title' => 'Proceso Migratorio Laboral',
-    'link' => '/proceso-migratorio-laboral'
+    'link' => '/migrante/proceso-migratorio-laboral'
   )
 );
 ?>

@@ -372,6 +372,10 @@ p {
   color: inherit;
 }
 
+.footer__nav-link:hover {
+  color: inherit;
+}
+
 /* 
 .footer__logo {
   width: 60%;
@@ -386,7 +390,7 @@ p {
 }
 
 .footer__contact-line {
-  font-size: .8rem;
+  font-size: 1rem;
 }
 
 .button {
@@ -490,7 +494,7 @@ p {
  */
 
 .link__text {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .list__element--link::marker {
@@ -684,7 +688,7 @@ p {
 
 .link-group>ul>li {
   margin: .5rem auto;
-  font-size: 1.2rem;
+  font-size: 1rem;
   list-style-position: outside;
   margin-left: 2rem;
   padding-left: 0;

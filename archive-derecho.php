@@ -7,9 +7,10 @@
 <?php
 $args = array(
   'post_type' => 'derecho',
-  'post_per_page' => -1,
+  'post_per_page' => 13,
+  'orderby' => 'date',
   'order' => 'ASC',
-  'orderby' => 'title',
+  'post_status' => 'publish',
 );
 $derechos = new WP_Query($args);
 ?>
@@ -18,11 +19,11 @@ $derechos = new WP_Query($args);
 $enlaces_relacionados = array(
   array(
     'title' => 'Los Derechos Laborales de los Trabajadores Migrantes',
-    'link' => '#'
+    'link' => './'
   ),
   array(
     'title' => 'Proceso Migratorio Laboral',
-    'link' => '#'
+    'link' => '/migrante/migracion-laboral/proceso-migratorio-laboral/'
   )
 );
 ?>
@@ -32,31 +33,23 @@ $enlaces_relacionados = array(
   <div class="row">
     <div id="postArea" class="printing-area col-md-8">
       <div class="mb-4 mt-4 ps-2 border-gob-start">
-        <a class="link--secondary link--secondary-regular" href="">Dirección de Seguridad Social y Migración Laboral</a>
+        <a class="link--secondary-template link--secondary-regular" href="/">Dirección de Seguridad Social y Migración Laboral</a>
       </div>
+      <h1 class="my-3">
+        Derechos Socio Laborales
+      </h1>
       <?php
-      if (have_posts()) {
-        while (have_posts()) {
-          the_post();
+      if ($derechos->have_posts()) {
+        while ($derechos->have_posts()) {
+          $derechos->the_post();
       ?>
-          <h1 class="my-3">
-            <?php the_title() ?>
-          </h1>
-          <div class="text">
-            <?php echo get_the_content(); ?>
-          </div>
           <ul class="list-container">
-            <?php while ($derechos->have_posts()) {
-              $derechos->the_post();
-            ?>
-              <li class="list py-1">
-                <p class="list-item">
-                  <span class="list__title"><?php the_title(); ?>: </span>
-                  <span class="list__text"><?php echo get_the_content(); ?></span>
-                </p>
-              </li>
-            <?php
-            } ?>
+            <li class="list py-1">
+              <p class="list-item">
+                <span class="list__title"><?php the_title(); ?>: </span>
+                <span class="list__text"><?php echo get_the_content(); ?></span>
+              </p>
+            </li>
           </ul>
       <?php
         }
@@ -71,7 +64,7 @@ $enlaces_relacionados = array(
             <?php foreach ($enlaces_relacionados as $enlace) {
             ?>
               <div class="row">
-                <a class="link--secondary my-2" href="<?php echo $enlace['link'] ?>"><?php echo $enlace['title'] ?></a>
+                <a class="link--secondary-template my-2" href="<?php echo $enlace['link'] ?>"><?php echo $enlace['title'] ?></a>
               </div>
             <?php
             }

@@ -7,7 +7,6 @@ jQuery(function ($) {
     let categoria = null;
     let fechaDesde = null;
     let fechaHasta = null;
-    console.log($(this).attr('id'));
     if ($(this).attr('id') === 'frm-buscar-noticias') {
       palabraClave = $('#buscador').val();
       tipoFiltro = 'noticia';
@@ -17,9 +16,10 @@ jQuery(function ($) {
       tipoFiltro = ['noticia', 'derecho'];;
       esBuscadorGeneral = true;
     }
-    else {
+    else if ($(this).attr('id') === 'frm-filtros-noticias') {
+      console.log($(this).attr('id'));
       palabraClave = $('#palabra-clave').val();
-      tipoFiltro = 'noticia';
+      tipoFiltro = ['noticia'];
       categoria = $('#categoria').val();
       fechaDesde = $('#fecha_desde').val();
       fechaHasta = $('#fecha_hasta').val();

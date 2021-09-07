@@ -18,7 +18,7 @@ const Collapse2Save = (props) => {
         </div>
         <div className="col-1 d-flex align-items-center justify-content-end">
           <button className="button collapsable__toggle" type="button" data-bs-toggle="collapse"
-            data-bs-target={"#collapsable2" + id} aria-expanded="false" aria-controls={"collapsable2" + id}>
+            data-bs-target={"#collapsable2" + id} aria-expanded="true" aria-controls={"collapsable2" + id}>
             <span className="material-icons button__icon">chevron_right</span>
           </button>
         </div>

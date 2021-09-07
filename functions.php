@@ -6,7 +6,7 @@ $font_uri = 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,3
 $popper_js_uri = 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js';
 $bootstrap_js_uri = 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js';
 $material_icons_uri = 'https://fonts.googleapis.com/icon?family=Material+Icons';
-//SocialShareJs
+// SocialShareJs - Librería para compartir páginas
 $socialShare_css_uri = 'https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.css';
 $socialShare_js_uri = 'https://cdn.jsdelivr.net/gh/assisfery/SocialShareJS@1.4/social-share.min.js';
 
@@ -318,7 +318,7 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
             </a>
           </li>
         </div>',
-      esc_url(get_permalink($post_id)),
+      esc_url(get_post_type_archive_link($post['post_type'])),
       esc_html(get_the_title($post_id))
     );
   }
@@ -327,7 +327,7 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
           </div>
       <div class="row">
         <div class="col d-flex flex-row-reverse">
-          <a href="/derechos-socio-laborales" class="button button--secondary" style="justify-content: space-between;">
+          <a href="/derecho" class="button button--secondary" style="justify-content: space-between;">
             Ver más derechos
             <svg class="ml-4 button__icon" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26">
               <path fill="currentColor" d="M12.5.5l-2.203 2.203 8.719 8.735H0v3.125h19.016l-8.72 8.734L12.5 25.5 25 13z"></path>

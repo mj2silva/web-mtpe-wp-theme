@@ -143,14 +143,6 @@ $noticias = new WP_Query($args);
                 </a>
               </div>
             </div>
-            <!-- <div class="col-4 d-flex">
-                <li class="list__element--link">
-                  <a class="link text-center" href="<?php echo get_post_meta(get_the_ID(), 'external_link', true); ?>">
-                    <span class="link__text"></span>
-                    <span class="dashicons dashicons-external"></span>
-                  </a>
-                </li>
-              </div> -->
         <?php
           }
         }
