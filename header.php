@@ -23,7 +23,7 @@
         <div class="row align-items-center">
           <div class="col-4 d-flex align-items-center col-md-4 col-lg-8 header__logo">
             <div class="d-inline-flex align-items-center h-100">
-              <a href="/">
+              <a href="<?php echo home_url() ?>">
                 <img class="d-md-inline-block" src="<?php echo get_template_directory_uri() ?>/assets/img/logos/escudo_blanco.svg" alt="Logo gob.pe">
                 <img class="d-none d-md-inline-block" src="<?php echo get_template_directory_uri() ?>/assets/img/logos/gobpe_blanco.svg" alt="Logo gob.pe">
               </a>
@@ -76,7 +76,7 @@
           <nav style="--bs-breadcrumb-divider: \' > \';" aria-label="breadcrumb">'
           . '<ol class="breadcrumb">'
           . '<li class="header__breadcrumb-item breadcrumb-item">'
-          . '<a href="/">'
+          . '<a href="' . home_url() . '">'
           . 'Inicio'
           . '</a>'
           . '</li>'

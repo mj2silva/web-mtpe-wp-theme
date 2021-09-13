@@ -1,22 +1,21 @@
 
-import { PlainText, InnerBlocks, MediaUpload, MediaUploadCheck, useBlockProps } from '@wordpress/block-editor';
-import { Button } from '@wordpress/components';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 const ProcessSave = (props) => {
   const { attributes: { title, icon, anchor } } = props;
 
   return (
-    <div id={anchor} className="container">
-      <div class="process-bar">
-        <div class="row process-bar__header">
-          <div class="col-2 p-0 process-bar__icon">
+    <div className="container position-relative" id={anchor}>
+      <div className="process-bar">
+        <div className="row process-bar__header">
+          <div className="col-2 p-0 process-bar__icon">
             <img src={icon.url} alt={icon.alt} />
           </div>
-          <div class="col p-0 process-bar__title">
-            {title}
+          <div className="col p-0 process-bar__title">
+            {title.trim()}
           </div>
         </div>
-        <div class="row g-0 process-bar__content">
+        <div className="row g-0 process-bar__content">
           <InnerBlocks.Content />
         </div>
       </div>

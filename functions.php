@@ -253,7 +253,7 @@ function pgRegisterBlock()
     'pg-block',
     get_template_directory_uri() . '/blocks/build/index.js',
     $assets['dependencies'],
-    $assets['version'],
+    $assets['version']
   );
   register_block_type(
     'mtpe/info-links',

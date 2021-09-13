@@ -19,10 +19,10 @@ const ProcessEdit = (props) => {
 
   return (
     <div {...useBlockProps()}>
-      <div class="container">
-        <div class="process-bar">
-          <div class="row process-bar__header">
-            <div class="col-2 p-0 process-bar__icon">
+      <div className="container">
+        <div className="process-bar">
+          <div className="row process-bar__header">
+            <div className="col-2 p-0 process-bar__icon">
               <MediaUploadCheck>
                 <MediaUpload
                   className="js-book-details-image wp-admin-book-details-image"
@@ -35,7 +35,7 @@ const ProcessEdit = (props) => {
                     (icon) ?
                       (
                         <>
-                          <span class="d-inline-block collapsable__icon">
+                          <span className="d-inline-block collapsable__icon">
                             <img src={icon.url} />
                           </span>
                           <Button
@@ -48,7 +48,7 @@ const ProcessEdit = (props) => {
                       )
                       :
                       (
-                        <div class="col-2 d-flex align-items-center">
+                        <div className="col-2 d-flex align-items-center">
                           <Button
                             onClick={open}
                             className="button is-small"
@@ -61,11 +61,11 @@ const ProcessEdit = (props) => {
                 />
               </MediaUploadCheck>
             </div>
-            <div class="col p-0 process-bar__title">
+            <div className="col p-0 process-bar__title">
               <PlainText placeholder="Título del elemento" onChange={onChangeTitle} value={title} />
             </div>
           </div>
-          <div class="row g-0 process-bar__content">
+          <div className="row g-0 process-bar__content">
             <InnerBlocks />
           </div>
         </div>

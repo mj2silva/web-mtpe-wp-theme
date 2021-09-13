@@ -1,9 +1,10 @@
 
 import { InnerBlocks } from '@wordpress/block-editor';
 
-const ContainerSave = () => {
+const ContainerSave = (props) => {
+  const { attributes: { anchor } } = props;
   return (
-    <div className="container py-4">
+    <div id={anchor} className="container py-4 position-relative">
       <InnerBlocks.Content />
     </div>
   );

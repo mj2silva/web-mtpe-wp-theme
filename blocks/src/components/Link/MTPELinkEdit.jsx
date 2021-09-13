@@ -4,7 +4,7 @@ import { SelectControl, TextControl } from '@wordpress/components';
 import { useBlockProps } from '@wordpress/block-editor';
 
 const MTPELinkEdit = (props) => {
-  const { attributes: { links, style }, setAttributes } = props;
+  const { attributes: { links, style = 'default' }, setAttributes } = props;
   const addLink = () => {
     setAttributes({
       links: [
@@ -15,20 +15,20 @@ const MTPELinkEdit = (props) => {
           label: '',
         },
       ],
-      style: 'default'
+      style,
     })
   }
   const removeLink = (linkToRemove) => {
     const newLinks = links.filter((link) => {
       return (link.id !== linkToRemove.id);
     })
-    setAttributes({ links: newLinks });
+    setAttributes({ links: newLinks, style });
   }
   const editLink = (newLink) => {
     const newLinks = links.map((link) => {
       return (link.id === newLink.id) ? newLink : link;
     })
-    setAttributes({ links: newLinks });
+    setAttributes({ links: newLinks, style });
   }
   const onChangeStyle = (newStyle) => {
     setAttributes({

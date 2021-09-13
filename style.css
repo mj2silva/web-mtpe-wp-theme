@@ -294,6 +294,7 @@ p {
   outline: none;
   width: 100%;
   min-height: 3rem;
+  position: relative;
 }
 
 .header__navbar-icon {
@@ -1133,4 +1134,20 @@ p {
 
 .text p {
   font-size: 1.25rem;
+}
+
+.target {
+  margin-top: -200px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 200px;
+  /* fixed header height*/
+  margin: -200px 0 0;
+  /* negative fixed header height */
 }

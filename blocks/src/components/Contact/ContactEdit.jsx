@@ -15,18 +15,18 @@ const ContactEdit = (props) => {
   }
   return (
     <div {...useBlockProps()}>
-      <div class="container-fluid m-0 p-0">
-        <div id="contactInfo" class="carousel slide contactInfo" data-bs-ride="carousel">
-          <div class="d-none d-lg-block carousel-inner contactInfo__carousel">
-            <div class="carousel-item active">
-              <div class="black-gradient"></div>
-              {attributes?.background ? <img src={attributes.background?.url} class="d-md-block w-100"
+      <div className="container-fluid m-0 p-0">
+        <div id="contactInfo" className="carousel slide contactInfo" data-bs-ride="carousel">
+          <div className="d-none d-lg-block carousel-inner contactInfo__carousel">
+            <div className="carousel-item active">
+              <div className="black-gradient"></div>
+              {attributes?.background ? <img src={attributes.background?.url} className="d-md-block w-100"
                 alt={attributes.background.alt} />
-                : <img class="d-md-block w-100 contactInfo__image" src="" alt="" srcset="" />
+                : <img className="d-md-block w-100 contactInfo__image" src="" alt="" srcset="" />
               }
-              <div class="row px-0 carousel-caption contactInfo__caption d-flex px-2">
-                <h2 class="text-start">Contacto</h2>
-                <div class="container py-4 px-5 contactInfo__caption-content">
+              <div className="row px-0 carousel-caption contactInfo__caption d-flex px-2">
+                <h2 className="text-start">Contacto</h2>
+                <div className="container py-4 px-5 contactInfo__caption-content">
                   <MediaUploadCheck>
                     <MediaUpload
                       className="js-book-details-image wp-admin-book-details-image"
@@ -38,9 +38,9 @@ const ContactEdit = (props) => {
                       render={({ open }) => (
                         (attributes.background) ?
                           (
-                            <div class="col-6 px-0 d-flex align-items-center">
+                            <div className="col-6 px-0 d-flex align-items-center">
                               <span className="me-3">Imagen de fondo:</span>
-                              <span class="d-inline-block w-25">
+                              <span className="d-inline-block w-25">
                                 <img src={attributes.background?.url} />
                               </span>
                               <Button
@@ -53,7 +53,7 @@ const ContactEdit = (props) => {
                           )
                           :
                           (
-                            <div class="col-6 d-flex align-items-center">
+                            <div className="col-6 d-flex align-items-center">
                               <span>Imagen de fondo:</span>
                               <Button
                                 onClick={open}
@@ -66,25 +66,25 @@ const ContactEdit = (props) => {
                       )}
                     />
                   </MediaUploadCheck>
-                  <div class="contactInfo__block">
-                    <h4 class="h4 text-start">Sede central</h4>
-                    <div class="text-start">
+                  <div className="contactInfo__block">
+                    <h4 className="h4 text-start">Sede central</h4>
+                    <div className="text-start">
                       <RichText placeholder="Texto de la sede central" value={attributes.address} onChange={onChange('address')} />
                     </div>
-                    <div class="link py-3 contactInfo__link">
-                      <span>Ver Mapa <span class="contactInfo__link-icon">{">"}</span></span>
+                    <div className="link py-3 contactInfo__link">
+                      <span>Ver Mapa <span className="contactInfo__link-icon">{">"}</span></span>
                     </div>
                     <PlainText value={attributes.mapUrl} placeholder="Ingrese la URL del mapa a la ubicación" onChange={onChange('mapUrl')} />
                   </div>
-                  <div class="contactInfo__block">
-                    <h4 class="h4 text-start">Central telefónica</h4>
-                    <div class="text-start">
+                  <div className="contactInfo__block">
+                    <h4 className="h4 text-start">Central telefónica</h4>
+                    <div className="text-start">
                       <RichText placeholder="Número(s) telefónicos" value={attributes.phone} onChange={onChange('phone')} />
                     </div>
                   </div>
-                  <div class="contactInfo__block">
-                    <h4 class="h4 text-start">Horario</h4>
-                    <div class="text-start">
+                  <div className="contactInfo__block">
+                    <h4 className="h4 text-start">Horario</h4>
+                    <div className="text-start">
                       <RichText placeholder="Número(s) telefónicos" value={attributes.schedule} onChange={onChange('schedule')} />
                     </div>
                   </div>

@@ -23,7 +23,7 @@ $enlaces_relacionados = array(
   ),
   array(
     'title' => 'Proceso Migratorio Laboral',
-    'link' => '/migrante/migracion-laboral/proceso-migratorio-laboral/'
+    'link' => home_url() . '/migracion-laboral/proceso-migratorio-laboral/'
   )
 );
 ?>

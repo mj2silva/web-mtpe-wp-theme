@@ -123,6 +123,10 @@ registerBlockType(
             label: '',
           }
         ]
+      },
+      style: {
+        type: 'string',
+        default: 'default',
       }
     },
     edit: MTPELinkEdit,
@@ -255,7 +259,17 @@ registerBlockType(
     description: 'Contenedor simple para un bloque o bloques de la página',
     icon: 'align-wide',
     category: 'layout',
-    attributes: {},
+    supports: {
+      anchor: true,
+    },
+    attributes: {
+      anchor: {
+        type: 'string',
+        source: 'attribute',
+        attribute: 'id',
+        selector: '*',
+      }
+    },
     edit: ContainerEdit,
     save: ContainerSave,
   }
@@ -269,7 +283,17 @@ registerBlockType(
     description: 'Uso para crear contenedores con fondo gris claro',
     icon: 'align-wide',
     category: 'layout',
-    attributes: {},
+    supports: {
+      anchor: true,
+    },
+    attributes: {
+      anchor: {
+        type: 'string',
+        source: 'attribute',
+        attribute: 'id',
+        selector: '*',
+      }
+    },
     edit: ContainerGrayEdit,
     save: ContainerGraySave,
   }

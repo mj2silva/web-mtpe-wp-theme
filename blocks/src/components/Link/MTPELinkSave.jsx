@@ -19,10 +19,10 @@ const MTPELinkSave = (props) => {
       <ul>
         {
           links.map((link) => (
-            <li class={linkClassName}>
-              <a target="_blank" rel="noopener noreferrer" class="link text-center" href={link.url}>
-                <span class="link__text">{link.label}{' '}</span>
-                <span class="material-icons link__icon">open_in_new</span>
+            <li className={linkClassName}>
+              <a target="_blank" rel="noopener noreferrer" className="link text-center" href={link.url?.trim()}>
+                <span className="link__text">{link.label?.trim()}{' '}</span>
+                <span className="material-icons link__icon">open_in_new</span>
               </a>
             </li>
           ))

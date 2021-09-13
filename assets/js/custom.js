@@ -105,14 +105,22 @@ jQuery(function ($) {
 });
 
 (function () {
-  const navMenuElements = document.getElementsByClassName('header__nav-link');
-  const currentLocation = window.location.href;
-  console.log(currentLocation);
-  [...navMenuElements].forEach((element) => {
-    if (element.href === currentLocation) {
-      element.parentElement.classList.add('header__nav--active');
-    } else {
-      element.parentElement.classList.remove('header__nav--active');
-    }
+  const changeHeaderClasses = () => {
+    const navMenuElements = document.getElementsByClassName('header__nav-link');
+    const currentLocation = window.location.href;
+    [...navMenuElements].forEach((element) => {
+      if (currentLocation.startsWith(element.href)) {
+        element.parentElement.classList.add('header__nav--active');
+      } else {
+        element.parentElement.classList.remove('header__nav--active');
+      }
+    })
+  }
+
+  window.addEventListener('popstate', () => {
+    changeHeaderClasses();
+  })
+  window.addEventListener('load', () => {
+    changeHeaderClasses();
   })
 })();
