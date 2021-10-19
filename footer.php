@@ -2,13 +2,13 @@
   <div class="container-fluid footer__container">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-4 d-flex justify-content-center align-self-center">
+        <div class="col-12 col-md-2 d-flex justify-content-center align-self-center">
           <div class="d-block">
             <img class="d-inline-block me-3" src="<?php echo get_template_directory_uri() ?>/assets/img/logos/escudo_blanco.svg" alt="Logo gob.pe">
             <img class="d-inline-block" src="<?php echo get_template_directory_uri() ?>/assets/img/logos/gobpe_blanco.svg" alt="Logo gob.pe">
           </div>
         </div>
-        <div class="col-12 col-md-4 my-5 d-flex justify-content-center align-self-center">
+        <div class="col-12 col-md-6 my-5 d-flex justify-content-center align-self-center">
           <?php
           wp_nav_menu(
             array(

@@ -8,7 +8,7 @@ $fields = get_fields();
   while (have_posts()) {
     the_post();
   ?>
-    <div id="carouselExampleSlidesOnly" class="carousel slide presentation" data-bs-ride="carousel">
+    <div id="carouselSlidesOnly" class="carousel slide presentation" data-bs-ride="carousel">
       <div class="d-none d-lg-block carousel-inner">
         <div class="carousel-item active">
           <div class="black-gradient"></div>

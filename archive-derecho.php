@@ -33,7 +33,7 @@ $enlaces_relacionados = array(
   <div class="row">
     <div id="postArea" class="printing-area col-md-8">
       <div class="mb-4 mt-4 ps-2 border-gob-start">
-        <a class="link--secondary-template link--secondary-regular" href="/">Dirección de Seguridad Social y Migración Laboral</a>
+        <a class="link--secondary-template link--secondary-regular" href="<?php echo home_url() ?>">Dirección de Seguridad Social y Migración Laboral</a>
       </div>
       <h1 class="my-3">
         Derechos Socio Laborales

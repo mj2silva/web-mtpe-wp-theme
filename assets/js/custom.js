@@ -109,7 +109,7 @@ jQuery(function ($) {
     const navMenuElements = document.getElementsByClassName('header__nav-link');
     const currentLocation = window.location.href;
     [...navMenuElements].forEach((element) => {
-      if (currentLocation.startsWith(element.href)) {
+      if (currentLocation === element.href) {
         element.parentElement.classList.add('header__nav--active');
       } else {
         element.parentElement.classList.remove('header__nav--active');

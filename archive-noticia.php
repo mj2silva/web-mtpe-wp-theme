@@ -97,10 +97,9 @@ $noticias = new WP_Query($args);
       <div class="container-fluid pt-5 pb-3">
         <form class="buscador-noticias searchbar__form" id="frm-buscar-noticias">
           <div class="input-group input-group-lg md-3">
-            <div class="searchbar__icon--minimalist" id="basic-addon1">
-              <span class="dashicons dashicons-search"></span>
-              <!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/icons/search_black_24dp.svg"> -->
-            </div>
+            <button class="border-0 searchbar__icon--minimalist" id="basic-addon1" type="submit">
+              <span class="material-icons">search</span>
+            </button>
             <label for="search" class="visually-hidden">Buscar</label>
             <input class="searchbar__input--minimalist" id="buscador" name="buscador" type="search" placeholder="Buscar en DSSML" />
           </div>

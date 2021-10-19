@@ -10,11 +10,11 @@
 $enlaces_relacionados = array(
   array(
     'title' => 'Los Derechos Laborales de los Trabajadores Migrantes',
-    'link' => '/derechos-laborales'
+    'link' => home_url() . '/derecho'
   ),
   array(
     'title' => 'Proceso Migratorio Laboral',
-    'link' => '/proceso-migratorio-laboral'
+    'link' => home_url() . '/proceso-migratorio-laboral'
   )
 );
 ?>
@@ -24,7 +24,7 @@ $enlaces_relacionados = array(
   <div class="row">
     <div id="postArea" class="printing-area col-md-8">
       <div class="mb-4 mt-4 ps-2 border-gob-start">
-        <a class="link--secondary-template link--secondary-regular" href="/">Dirección de Seguridad Social y Migración Laboral</a>
+        <a class="link--secondary-template link--secondary-regular" href="<?php echo home_url() ?>">Dirección de Seguridad Social y Migración Laboral</a>
       </div>
       <h1>Resultados de búsqueda</h1>
       <?php
@@ -39,7 +39,20 @@ $enlaces_relacionados = array(
           <div class="newsCard container-fluid container--gray py-4 my-3">
             <div class="newsCard__header">
               <span class="newsCard__timestamp">
-                <?php echo get_the_date(); ?> - <?php the_time('g:i a'); ?>
+                <?php
+                if (get_post_type(get_the_ID()) == 'page') echo 'Dirección de Seguridad Social y Migración Laboral';
+                else {
+                  echo '<a href="';
+                  echo get_post_type_archive_link(get_post_type());
+                  echo '">';
+                  echo ucfirst(get_post_type(get_the_ID()));
+                  echo '</a>';
+                  echo ' - ';
+                  echo get_the_date();
+                  echo ' - ';
+                  echo the_time('g:i a');
+                }
+                ?>
               </span>
             </div>
             <div class="newsCard__body">

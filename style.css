@@ -524,7 +524,10 @@ p {
   background-color: var(--cl-white-gob);
 }
 
-.presentation {}
+.presentation {
+  max-height: 35rem;
+  overflow: hidden;
+}
 
 .presentation__field {
   background-color: var(--cl-white-gob);
@@ -1136,18 +1139,19 @@ p {
   font-size: 1.25rem;
 }
 
-.target {
-  margin-top: -200px;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
 :target::before {
   content: "";
   display: block;
-  height: 200px;
-  /* fixed header height*/
-  margin: -200px 0 0;
-  /* negative fixed header height */
+  position: absolute;
+  top: -20rem;
+}
+
+/* :target {
+  margin: 10rem 0 0 0;
+}
+ */
+
+html {
+  scroll-padding-top: 10rem;
+  /* height of sticky header */
 }
