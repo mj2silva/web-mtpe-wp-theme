@@ -19,7 +19,7 @@ jQuery(function ($) {
     else if ($(this).attr('id') === 'frm-filtros-noticias') {
       console.log($(this).attr('id'));
       palabraClave = $('#palabra-clave').val();
-      tipoFiltro = ['noticia'];
+      tipoFiltro = 'noticia';
       categoria = $('#categoria').val();
       fechaDesde = $('#fecha_desde').val();
       fechaHasta = $('#fecha_hasta').val();
@@ -57,12 +57,18 @@ jQuery(function ($) {
         if (data != 0) {
           let html = "";
           data.forEach(item => {
-            console.log(item);
-            html += `<div class="newsCard container-fluid container--gray py-4 my-3">
+            const header = (item.postType === 'noticia')
+              ? `
             <div class="newsCard__header">
               <span class="newsCard__type">${item.type?.map(cat => cat.cat_name).join(', ') || ''}</span>
               <span class="newsCard__timestamp">${item.date} - ${item.time}</span>
-            </div>
+            </div>`
+              : `
+            <div class="newsCard__header">
+              <span class="newsCard__type">Dirección de Seguridad Social y Migración Laboral</span>
+            </div>`;
+            html += `<div class="newsCard container-fluid container--gray py-4 my-3">
+            ${header}
             <div class="newsCard__body">
               <a href="${item.link}" class="newsCard__title mt-3">
                 ${item.title}

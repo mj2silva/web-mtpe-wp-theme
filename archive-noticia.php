@@ -67,7 +67,7 @@ $noticias = new WP_Query($args);
                       <?php
                       foreach ($categorias as $categoria) {
                       ?>
-                        <option value="<?php echo $categoria->name  ?>">
+                        <option value="<?php echo $categoria->slug  ?>">
                           <?php echo $categoria->name  ?>
                         </option>
                       <?php

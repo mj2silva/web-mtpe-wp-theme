@@ -214,6 +214,7 @@ function wpFiltroNoticias()
   if ($_POST['categoria']) {
     $args['tax_query'] = array(
       array(
+        'taxonomy' => 'categoria-noticias',
         'field' => 'slug',
         'terms' => $_POST['categoria']
       )
@@ -233,6 +234,7 @@ function wpFiltroNoticias()
         'excerpt' => get_the_excerpt(),
         'date' => get_the_date(),
         'time' => get_the_time('g:i a'),
+        'postType' => get_post_type(),
         'type' => get_categories(array(
           'taxonomy' => 'categoria-noticias',
           'orderby' => 'name',
