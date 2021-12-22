@@ -1,0 +1,6 @@
+Para actualizar el tema puede volver a copiar todos los archivos o reemplazar solo los siguientes:
+
+1. functions.php
+2. style.css
+3. archive-derecho.php
+4. blocks (toda la carpeta)

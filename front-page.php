@@ -33,9 +33,9 @@ $fields = get_fields();
           <div class="presentation__content text-start">
             <?php echo $fields['mensaje_presentacion']; ?>
           </div>
-          <div class="presentation__buttons-container text-start">
-            <a href="<?php echo home_url() . '/migracion-laboral' ?>" class="btn btn-primary presentation__button">Migración Laboral</a>
-            <a href="<?php echo home_url() . '/seguridad-social' ?>" class="btn btn-primary presentation__button">Seguridad Social</a>
+          <div class="presentation__buttons-container text-start w-100 d-flex w-100 flex-column">
+            <a href="<?php echo home_url() . '/migracion-laboral' ?>" class="btn my-1 btn-primary presentation__button">Migración Laboral</a>
+            <a href="<?php echo home_url() . '/seguridad-social' ?>" class="btn my-1 btn-primary presentation__button">Seguridad Social</a>
           </div>
         </div>
       </div>

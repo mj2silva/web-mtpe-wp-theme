@@ -329,7 +329,7 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
           </div>
       <div class="row">
         <div class="col d-flex flex-row-reverse">
-          <a href="/derecho" class="button button--secondary" style="justify-content: space-between;">
+          <a href="' . home_url() . '/derecho" class="button button--secondary" style="justify-content: space-between;">
             Ver más derechos
             <svg class="ml-4 button__icon" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26">
               <path fill="currentColor" d="M12.5.5l-2.203 2.203 8.719 8.735H0v3.125h19.016l-8.72 8.734L12.5 25.5 25 13z"></path>

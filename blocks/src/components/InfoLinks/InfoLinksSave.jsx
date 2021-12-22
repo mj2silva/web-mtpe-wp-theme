@@ -4,7 +4,7 @@ const InfoLinksSave = (props) => {
     <section className="container-fluid container--gray  py-5">
       <div className="container">
         <div className="py-4">
-          <h2>¡Todo lo que debes saber para trabajar dentro y fuera del Perú</h2>
+          <h2>¡Todo lo que debes saber para trabajar dentro y fuera del Perú!</h2>
           <p className="h5">
             Entérate de los beneficios, requisitos y pasos para acceder a ellos, y otra información de tu interés.
           </p>

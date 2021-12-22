@@ -55,6 +55,12 @@ $enlaces_relacionados = array(
         }
       }
       ?>
+      <div>
+        <h6 class="h6" style="font-size: 0.9rem; color: grey">
+          [3] Para conocer la equivalencia de la Remuneración Mínima Vital, se recomienda la conversión a
+          la moneda norteamericana, según el cambio del día.
+        </h6>
+      </div>
     </div>
     <div class="col-md-4">
       <aside class="my-5 utils no-print social-utils">

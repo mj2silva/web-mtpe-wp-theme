@@ -525,15 +525,22 @@ p {
 }
 
 .presentation {
-  max-height: 35rem;
+  max-height: 37rem;
   overflow: hidden;
+  
+}
+
+@media screen and (max-width: 768px) {
+    .presentation {
+      max-height: none;
+    }
 }
 
 .presentation__field {
   background-color: var(--cl-white-gob);
   color: var(--cl-gray-900-gob);
-  min-height: 22rem;
-  height: 50%;
+  min-height: 20rem;
+  height: fit-content;
   width: 50%;
   top: 10%;
   left: 10%;
