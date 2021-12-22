@@ -104,20 +104,20 @@ function my_nav_menu_submenu_css_class($classes)
 }
 add_filter('nav_menu_submenu_css_class', 'my_nav_menu_submenu_css_class');
 
-//Post Type: Derechos Socio Laborales
+//Post Type: Derechos Laborales
 function derechos_laborales_type()
 {
   $labels = array(
-    'name' => 'Derechos Socio Laborales',
-    'singular_name' => 'Derecho Socio Laboral',
-    'menu_name' => 'Derechos Socio Laborales'
+    'name' => 'Derechos Laborales',
+    'singular_name' => 'Derecho Laboral',
+    'menu_name' => 'Derechos Laborales'
   );
   $supports = array(
     'title', 'editor', 'custom-fields'
   );
   $args = array(
-    'label' => "Derechos Socio Laborales",
-    'description' => 'Derechos Socio Laborales de los Trabajadores Migrantes',
+    'label' => "Derechos Laborales",
+    'description' => 'Derechos Laborales de los Trabajadores Migrantes',
     'labels' => $labels,
     'supports' => $supports,
     'public' => true,
@@ -302,11 +302,11 @@ function mtpeRenderDynamicSocialRights($block_attributes, $content)
   }
   $render =
     '
-    <section id="derechos-socio-laborales" class="container py-4">
+    <section id="derechos-laborales" class="container py-4">
       <div class="py-4">
-        <h2>Conoce los Derechos Socio Laborales de los Trabajadores Migrantes</h2>
+        <h2>Conoce los Derechos Laborales de los Trabajadores Migrantes</h2>
         <p class="h5">
-          Los trabajadores migrantes del Régimen Laboral de la Actividad Privada tienen entre sus principales derechos socio laborales los siguientes:
+          Los trabajadores migrantes del Régimen Laboral de la Actividad Privada tienen entre sus principales derechos laborales los siguientes:
         </p>
       <div class="container my-3 container--gray">
         <ul class="row py-4 ps-4">';

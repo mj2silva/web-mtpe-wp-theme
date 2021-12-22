@@ -36,7 +36,7 @@ $enlaces_relacionados = array(
         <a class="link--secondary-template link--secondary-regular" href="<?php echo home_url() ?>">Dirección de Seguridad Social y Migración Laboral</a>
       </div>
       <h1 class="my-3">
-        Derechos Socio Laborales
+        Derechos Laborales
       </h1>
       <?php
       if ($derechos->have_posts()) {

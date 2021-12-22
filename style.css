@@ -256,8 +256,6 @@ p {
   display: inline-flex;
 }
 
-.header__breadcrumb {}
-
 .header__breadcrumb>nav>.breadcrumb {
   margin-bottom: 0;
 }
@@ -1161,4 +1159,19 @@ p {
 html {
   scroll-padding-top: 10rem;
   /* height of sticky header */
+}
+
+.button--collapse2 {
+  background-color: transparent;
+  color: --cl-blue-800-gob
+}
+.button--collapse2:hover {
+  background-color: transparent;
+}
+.button--tertiary::after {
+  background-image: url("./assets/img/icons/chevron.svg");
+}
+.button--collapse2::after {
+  color: var(--cl-blue-700-gob);
+  background-image: url("./assets/img/icons/chevron.svg");
 }
